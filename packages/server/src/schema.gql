@@ -1,0 +1,486 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""AVWAP value"""
+type AVWAPValue {
+  period: Float!
+  periodType: ECandlePeriodType!
+  value: Float!
+}
+
+"""
+The `BigInt` scalar type represents non-fractional signed whole numeric values.
+"""
+scalar BigInt
+
+"""candle"""
+type Candle {
+  alerts: [String!]!
+  close: Float!
+  high: Float!
+  id: Float!
+  indicatorValue(key: String!): Float
+  indicators: JSON!
+  low: Float!
+  open: Float!
+  period: Float!
+  periodISO: String!
+  periodType: ECandlePeriodType!
+
+  """
+  Calculate the RS/RW values in comparison to the specified ticker symbol in real-time without saving to the DB.
+  """
+  relativeStrengthWeakness(compareTickerSymbol: String = ""): Float
+  tickerSymbolId: Float!
+  volume: Int!
+}
+
+"""candle analyzer alert type"""
+type CandleAnalyzerAlertType {
+  key: String!
+  label: String!
+  sentiment: String!
+}
+
+"""candle analyzer chart series"""
+type CandleAnalyzerChartSeries {
+  indicatorKey: String!
+  seriesLabel: String!
+  seriesOptions: JSON!
+  seriesType: String!
+  valueTypeId: String!
+}
+
+"""candle analyzer chart series group"""
+type CandleAnalyzerChartSeriesGroup {
+  defaultVisible: Boolean!
+  groupLabel: String!
+  series: [CandleAnalyzerChartSeries!]!
+}
+
+"""candle analyzer chart type"""
+type CandleAnalyzerChartType {
+  chartId: String!
+  chartLabel: String!
+  seriesItems: JSON!
+}
+
+"""candle analyzer indicator type"""
+type CandleAnalyzerIndicatorType {
+  key: String!
+  label: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum ECandlePeriodType {
+  D
+  H
+  M
+  M1
+  M5
+  M15
+  M30
+  W
+  Y
+}
+
+enum ECandleSortOrder {
+  PERIOD_ASC
+  PERIOD_DESC
+}
+
+enum EScreenerSortMethod {
+  AVG_DAILY_VOL_ASC
+  AVG_DAILY_VOL_DESC
+  TICKER
+}
+
+enum ESectorsSortMethod {
+  GCIS_ASC
+  GCIS_DESC
+  NAME_ASC
+  NAME_DESC
+}
+
+enum ETickerSymbolType {
+  ETF
+  stock
+}
+
+enum ETickerSymbolsSortMethod {
+  AVG_DAILY_VOL_ASC
+  AVG_DAILY_VOL_DESC
+  MARKET_CAP_ASC
+  MARKET_CAP_DESC
+  NAME_ASC
+  NAME_DESC
+}
+
+enum ETradeInstrumentType {
+  CRYPTO
+  FUTURES
+  OPTION
+  STOCK
+}
+
+enum ETradeNoteType {
+  GENERAL
+  REVIEW
+  SETUP
+}
+
+enum ETradeOptionType {
+  CALL
+  PUT
+}
+
+enum ETradePeriodType {
+  DAY
+  MONTH
+  WEEK
+  YEAR
+}
+
+enum ETradeTagType {
+  REVIEW
+  SETUP
+}
+
+"""get users response"""
+type GetUsersResponse {
+  pagination: Pagination!
+  records: [User!]!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+type Mutation {
+  addTradeReview(id: Int!, reviewContent: String!, tagIds: [Int!]): Trade!
+  changeUserPassword(currentPassword: String!, newPassword: String!): User!
+  createTrade(accountId: Int!, instrumentType: ETradeInstrumentType!, notes: String! = "", optionSpreadTemplate: String! = "", positions: JSON!, profitTargetLevels: [TradePriceLevelInputType!]! = [], stopLossLevels: [TradePriceLevelInputType!]! = [], tagIds: [Int!]! = [], tickerSymbol: String!): Trade!
+  createTradeAccount(label: String!, supportedInstruments: [ETradeInstrumentType!]!): TradeAccount!
+  createTradeTag(label: String!, type: ETradeTagType!): TradeTag!
+  createUser(displayName: String! = "", roles: [String!]! = [], username: String!): User!
+  deleteTrade(tradeId: Int!): Trade!
+  deleteTradeAccount(tradeAccountId: Int!): TradeAccount!
+  deleteTradeTag(tagId: Int!): TradeTag!
+  deleteUser(id: Int!): User!
+  updateTrade(accountId: Int, id: Int!, instrumentType: ETradeInstrumentType, notes: [TradeNoteInputType!], optionSpreadTemplate: String, positions: JSON, profitTargetLevels: [TradePriceLevelInputType!], stopLossLevels: [TradePriceLevelInputType!], tagIds: [Int!], tickerSymbol: String): Trade!
+  updateTradeAccount(id: Int!, label: String, supportedInstruments: [ETradeInstrumentType!]): TradeAccount!
+  updateTradeTag(id: Int!, label: String, type: ETradeTagType): TradeTag!
+  updateUser(active: Boolean, displayName: String, id: Int, roles: [String!]): User!
+}
+
+"""paginatedScreenerResults response"""
+type PaginatedScreenerResultsResponse {
+  pagination: Pagination!
+  records: [ScreenerRecord!]!
+}
+
+"""paginatedTickers response"""
+type PaginatedTickersResponse {
+  pagination: Pagination!
+  records: [TickerSymbol!]!
+}
+
+"""paginatedTrades response"""
+type PaginatedTradesResponse {
+  pagination: Pagination!
+  records: [Trade!]!
+}
+
+"""pagination"""
+type Pagination {
+  currentPage: Int!
+  perPage: Int!
+  totalPages: Int!
+  totalRecords: Int!
+}
+
+type Query {
+  AVWAP(periodType: ECandlePeriodType = D, startDate: YMDDateString!, tickerSymbol: String!): [AVWAPValue!]!
+  calculateTradeClosePosition(tradeId: Int!): JSON!
+  candleAnalyzerAlertTypes(periodType: ECandlePeriodType! = D): [CandleAnalyzerAlertType!]!
+  candleAnalyzerChartTypes(periodType: ECandlePeriodType! = D): [CandleAnalyzerChartType!]!
+  candleAnalyzerIndicatorTypes(periodType: ECandlePeriodType! = D): [CandleAnalyzerIndicatorType!]!
+  candleAnalyzerMainChartSeriesGroups(periodType: ECandlePeriodType! = D): [CandleAnalyzerChartSeriesGroup!]!
+  candleAnalyzerVolumeChartSeriesGroups(periodType: ECandlePeriodType! = D): [CandleAnalyzerChartSeriesGroup!]!
+  candles(limit: Int! = 0, periodType: ECandlePeriodType! = D, sortOrder: ECandleSortOrder! = PERIOD_DESC, tickerSymbol: String!): [Candle!]!
+  currentUser: User!
+  paginatedScreenerResults(page: Int! = 1, perPage: Int! = 25, periodType: ECandlePeriodType! = D, queryId: Int! = 0, sectorGCIS: String! = "", sort: EScreenerSortMethod! = TICKER): PaginatedScreenerResultsResponse!
+  paginatedTickerSymbols(gcis: String! = "", page: Int! = 1, perPage: Int! = 25, search: String! = "", sort: ETickerSymbolsSortMethod! = NAME_ASC): PaginatedTickersResponse!
+  paginatedTrades(accountId: Int! = 0, instrumentType: ETradeInstrumentType, isClosed: Boolean, optionSpreadTemplate: String! = "", page: Int! = 1, perPage: Int! = 25, tickerSymbol: String! = ""): PaginatedTradesResponse!
+  screenerQueries: [ScreenerQuery!]!
+  screenerSortMethods: [ScreenerSortMethod!]!
+  searchTickerSymbols(query: String!): [TickerSymbol!]!
+  sector(gcis: String!): Sector!
+  sectors(sort: ESectorsSortMethod! = NAME_ASC): [Sector!]!
+  tickerSymbol(id: Int! = 0, name: String! = ""): TickerSymbol!
+  tickerSymbolEarnings(endDate: YMDDateString, startDate: YMDDateString): [TickerSymbolEarnings!]!
+  tickerSymbolNews(tickerSymbol: String! = "SPY"): [TickerSymbolNews!]!
+  tradeAccounts: [TradeAccount!]!
+  tradeInstruments: [TradeInstrument!]!
+  tradeOptionSpreadTemplateGroups: [TradeOptionSpreadTemplateGroup!]!
+  tradePerformance(accountId: Int! = 0, instrumentType: ETradeInstrumentType, numPeriods: Int! = 31, periodType: ETradePeriodType! = DAY, startDate: DateTime! = "2024-10-01T07:00:00.000Z"): TradePerformance!
+  tradeTags(type: ETradeTagType): [TradeTag!]!
+  userRoleTypes: [UserRoleType!]!
+  users(page: Int! = 1, perPage: Int! = 25, search: String! = ""): GetUsersResponse!
+}
+
+"""screener query"""
+type ScreenerQuery {
+  description: String!
+  id: Float!
+  label: String!
+  query: JSON!
+}
+
+"""screener record"""
+type ScreenerRecord {
+  lastCandle: Candle!
+  meta: ScreenerRecordMeta!
+  tickerSymbol: TickerSymbol!
+}
+
+"""screener record meta"""
+type ScreenerRecordMeta {
+  change: Float!
+}
+
+"""screener sort method"""
+type ScreenerSortMethod {
+  label: String!
+  name: String!
+}
+
+"""sector"""
+type Sector {
+  etfTickerSymbol: TickerSymbol!
+  gcis: String!
+  name: String!
+  tickerSymbols(order: String! = "asc", orderBy: String! = "symbol"): [TickerSymbol!]!
+}
+
+"""ticker symbol"""
+type TickerSymbol {
+  averageDailyVolume: Float!
+  candles(periodCount: Float! = -1, periodType: ECandlePeriodType! = D): [Candle!]!
+  earnings: [TickerSymbolEarnings!]!
+  gcis: String!
+  id: Float!
+  label: String!
+  marketCap: BigInt!
+  name: String!
+  sector: Sector!
+  type: ETickerSymbolType!
+}
+
+"""Ticker symbol earnings record"""
+type TickerSymbolEarnings {
+  afterClose: Boolean!
+  date: String!
+  eps: Float
+  epsEstimated: Float
+  fiscalDateEnding: String!
+  id: Float!
+  revenue: BigInt
+  revenueEstimated: BigInt
+  tickerSymbol: TickerSymbol!
+  tickerSymbolId: Float!
+}
+
+"""Ticker symbol news record"""
+type TickerSymbolNews {
+  articleURL: String!
+  author: String!
+  description: String!
+  id: String!
+  imageURL: String!
+  insights: [TickerSymbolNewsInsight!]!
+  keywords: [String!]!
+  publishedUTC: String!
+  publisher: TickerSymbolNewsPublisher!
+  tickers: [String!]!
+  title: String!
+}
+
+"""Ticker symbol news insight record"""
+type TickerSymbolNewsInsight {
+  sentiment: String!
+  sentimentReasoning: String!
+  ticker: String!
+}
+
+"""Ticker symbol news publisher record"""
+type TickerSymbolNewsPublisher {
+  faviconURL: String!
+  homepageURL: String!
+  logoURL: String!
+  name: String!
+}
+
+"""
+The javascript `Date` as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+"""
+scalar Timestamp
+
+"""trade"""
+type Trade {
+  account: TradeAccount!
+  accountId: Int!
+  closeDateTime: DateTime
+  id: Int!
+  instrument: TradeInstrument
+  instrumentType: ETradeInstrumentType!
+  isClosed: Boolean!
+  isReviewed: Boolean!
+  isScratch: Boolean!
+  notes: [TradeNote!]!
+  openDateTime: DateTime
+  optionSpreadTemplate: String!
+  optionType: TradeOptionSpreadTemplate
+  pnl: Float!
+  pnlPercent: Float!
+  positions: JSON!
+  profitTargetLevels: [TradePriceLevel!]!
+  stopLossLevels: [TradePriceLevel!]!
+  tags: [TradeTag!]
+  tickerSymbol: String!
+  tickerSymbolRecord: TickerSymbol
+  userId: Float!
+}
+
+"""trade account"""
+type TradeAccount {
+  id: Int!
+  instruments: [TradeInstrument!]!
+  label: String!
+  supportedInstruments: [ETradeInstrumentType!]!
+  userId: Int!
+}
+
+"""trade instrument"""
+type TradeInstrument {
+  label: String!
+  name: String!
+}
+
+"""trade note"""
+type TradeNote {
+  content: String!
+  id: String!
+  timestamp: Float!
+  type: String!
+}
+
+input TradeNoteInputType {
+  content: String!
+  id: String = ""
+  timestamp: Timestamp = 0
+  type: ETradeNoteType!
+}
+
+"""option spread template"""
+type TradeOptionSpreadTemplate {
+  label: String!
+  legs: [TradeOptionSpreadTemplateLeg!]!
+  name: String!
+}
+
+"""option spread template group"""
+type TradeOptionSpreadTemplateGroup {
+  groupName: String!
+  templates: [TradeOptionSpreadTemplate!]!
+}
+
+"""option spread template leg"""
+type TradeOptionSpreadTemplateLeg {
+  compareWithPreviousLeg: TradeOptionSpreadTemplateLegCompare!
+  editableFields: [String!]!
+  expirationGroup: Int!
+  quantity: Int!
+  quantityMultiplier: Int!
+  strikeGroup: Int!
+  type: ETradeOptionType!
+}
+
+"""option spread template leg compare"""
+type TradeOptionSpreadTemplateLegCompare {
+  expiration: String!
+  strike: String!
+}
+
+"""trade performance"""
+type TradePerformance {
+  periods: [TradePerformancePeriod!]!
+  totalLosers: Int!
+  totalPnl: Float!
+  totalProfitFactor: Float!
+  totalScratch: Int!
+  totalWinRate: Float!
+  totalWinners: Int!
+}
+
+"""trade performance period"""
+type TradePerformancePeriod {
+  numLosers: Int!
+  numScratch: Int!
+  numWinners: Int!
+  period: DateTime!
+  periodType: ETradePeriodType!
+  pnl: Float!
+  profitFactor: Float!
+  trades: Trade!
+  winRate: Float!
+}
+
+"""trade price level"""
+type TradePriceLevel {
+  id: String!
+  notes: String!
+  value: Float!
+}
+
+input TradePriceLevelInputType {
+  notes: String! = ""
+  value: Float!
+}
+
+"""trade tag"""
+type TradeTag {
+  id: Int!
+  label: String!
+  type: ETradeTagType!
+  userId: Int!
+}
+
+"""user"""
+type User {
+  active: Boolean!
+  createdAt: DateTime
+  displayName: String!
+  id: Int!
+  isAdmin: Boolean!
+  roles: [String!]!
+  username: String!
+}
+
+"""user role type"""
+type UserRoleType {
+  description: String!
+  label: String!
+  name: String!
+}
+
+"""
+A date string in YYYY-MM-DD format compliant with the ISO 8601 standard.
+"""
+scalar YMDDateString

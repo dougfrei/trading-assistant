@@ -1,0 +1,425 @@
+[
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "b34795346d5779c2eef379e9dd726a862219591e5e0072da457d31934f234976",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "Benzinga",
+			"homepageURL": "https://www.benzinga.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/benzinga.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/benzinga.ico"
+		},
+		"title": "Wall Street Poised For Strong Start As Inflation Data Looms: Strategist Says Brace For Volatile Fall As Soft Landing Not Guaranteed Outcome",
+		"author": "Benzinga Editor",
+		"publishedUTC": "2024-08-30T10:45:09Z",
+		"articleURL": "https://www.benzinga.com/news/earnings/24/08/40648231/wall-street-poised-for-strong-start-as-inflation-data-looms-strategist-says-brace-for-volatile-fall",
+		"tickers": ["QQQ", "SPY", "NVDA", "DELL"],
+		"imageURL": "https://cdn.benzinga.com/files/images/story/2024/08/30/Wall-Street-US-stocks.jpeg?width=1200&height=800&fit=crop",
+		"description": "Nasdaq futures are outperforming ahead of key inflation data, with the market anticipating a rate cut. However, analysts warn of potential volatility in the coming months as a 'soft landing' is not guaranteed.",
+		"keywords": ["Nasdaq", "inflation", "Federal Reserve", "rate cut", "market volatility"],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "QQQ",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article mentions that the Invesco QQQ ETF (QQQ) jumped 0.72% in premarket trading, indicating a positive sentiment towards the tech-heavy Nasdaq index."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article states that the SPDR S&P 500 ETF Trust (SPY) rose 0.46% in premarket trading, suggesting a positive sentiment towards the broader S&P 500 index."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "NVDA",
+				"sentiment": "negative",
+				"sentimentReasoning": "The article mentions that Nvidia fell 6.38% despite reporting a second-quarter beat and issuing above-consensus third-quarter guidance, indicating a negative sentiment towards the company."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "DELL",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article states that Dell Technologies Inc. climbed over 6% in premarket trading following the company's earnings release, suggesting a positive sentiment."
+			}
+		]
+	},
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "6d7f108905953315565326a96acd5a3768590923fcf8774f6ec1338ef5cd5195",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "Benzinga",
+			"homepageURL": "https://www.benzinga.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/benzinga.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/benzinga.ico"
+		},
+		"title": "Traders Scale Back Bets On 50-Basis-Point September Rate Cut Ahead of Friday's Key Fed Inflation Gauge Data",
+		"author": "Piero Cingari, Benzinga Staff Writer",
+		"publishedUTC": "2024-08-29T20:46:04Z",
+		"articleURL": "https://www.benzinga.com/news/large-cap/24/08/40639345/traders-scale-back-bets-on-50-basis-point-september-rate-cut-ahead-of-fridays-key-fed-inflation-ga",
+		"tickers": ["QQQ", "SPY", "TLT"],
+		"imageURL": "https://cdn.benzinga.com/files/images/story/2024/08/29/Federal-Reserve.png?width=1200&height=800&fit=crop",
+		"description": "Traders have scaled back their bets on a 50-basis-point rate cut in September, with the probability now at 32%, as strong GDP data and robust household spending have prompted skepticism over aggressive rate cuts. The market is eagerly awaiting the release of the Personal Consumption Expenditure (PCE) price index, the Fed's favorite inflation report, on Friday.",
+		"keywords": ["Federal Reserve", "interest rates", "inflation", "GDP", "PCE"],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "QQQ",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article suggests that a lower-than-expected PCE reading could provide a further boost to equities, including the Invesco QQQ Trust, Series 1."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article suggests that a lower-than-expected PCE reading could provide a further boost to equities, including the SPDR S&P 500."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "TLT",
+				"sentiment": "negative",
+				"sentimentReasoning": "The article suggests that a higher-than-expected PCE report could cause Treasury yields to climb, potentially leading to declines in the iShares 20+ Year Treasury Bond ETF."
+			}
+		]
+	},
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "8c18adfd242b9f02cf50fd591d93b4c679521f2c0c9eb260fc2ce5a62cf3ce75",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "Benzinga",
+			"homepageURL": "https://www.benzinga.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/benzinga.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/benzinga.ico"
+		},
+		"title": "Fitch Reaffirms US 'AA+' Credit Rating, Warns Of Growing Debt Burden: 'Tax Cuts Will Be Extended Under Either Trump Or Harris'",
+		"author": "Piero Cingari, Benzinga Staff Writer",
+		"publishedUTC": "2024-08-29T20:23:13Z",
+		"articleURL": "https://www.benzinga.com/analyst-ratings/analyst-color/24/08/40638519/fitch-reaffirms-us-aa-credit-rating-warns-of-growing-debt-burden-tax-cuts-will-be-e",
+		"tickers": ["QQQ", "SPY", "TLT"],
+		"imageURL": "https://cdn.benzinga.com/files/images/story/2024/08/29/Fitch-Ratings.jpeg?width=1200&height=800&fit=crop",
+		"description": "Fitch reaffirmed the US credit rating at 'AA+' but warned of rising debt and political polarization risks. The agency expects US economic growth to slow and the debt-to-GDP ratio to reach 124.4% by 2026, despite the contrasting economic goals of presidential candidates.",
+		"keywords": [
+			"credit rating",
+			"debt burden",
+			"economic growth",
+			"political polarization",
+			"presidential candidates"
+		],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "QQQ",
+				"sentiment": "neutral",
+				"sentimentReasoning": "The article mentions that the Invesco QQQ Trust, Series 1 ETF was up 0.1% in afternoon trading, indicating a neutral sentiment."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "neutral",
+				"sentimentReasoning": "The article states that the SPDR S&P 500 ETF Trust edged up 0.2% in afternoon trading, suggesting a neutral sentiment."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "TLT",
+				"sentiment": "negative",
+				"sentimentReasoning": "The article mentions that the iShares 20+ Year Treasury Bond ETF TLT slipped 0.9%, suggesting a negative sentiment."
+			}
+		]
+	},
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "0a82994c23c0c6092f54c4aa60d4a39cced07b7bc633028a06dba5ed585ebb67",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "Benzinga",
+			"homepageURL": "https://www.benzinga.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/benzinga.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/benzinga.ico"
+		},
+		"title": "Wall Street On Track For Relief Rally With Nvidia Earnings In Rearview Mirror: Strategist Says Near-Term Market Trajectory May Not Hinge On Presidential Election But This",
+		"author": "Benzinga Editor",
+		"publishedUTC": "2024-08-29T10:54:46Z",
+		"articleURL": "https://www.benzinga.com/news/earnings/24/08/40621553/wall-street-on-track-for-relief-rally-with-nvidia-earnings-in-rearview-mirror-strategist-says-near-",
+		"tickers": ["NVDA", "QQQ", "SPY", "SMCI"],
+		"imageURL": "https://cdn.benzinga.com/files/images/story/2024/08/29/Highrise-Buildings-In-Wall-Street-Financ.jpeg?width=1200&height=800&fit=crop",
+		"description": "The Nasdaq and S&P 500 futures were higher in early trading despite Nvidia's weak earnings, as some strong tech earnings could provide an offsetting impact. Analysts note caution ahead of key economic data and the upcoming presidential election, which could affect specific sectors.",
+		"keywords": [
+			"Nasdaq",
+			"S&P 500",
+			"Nvidia",
+			"tech earnings",
+			"economic data",
+			"presidential election"
+		],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "NVDA",
+				"sentiment": "negative",
+				"sentimentReasoning": "Nvidia's weak earnings weighed on the tech sector, causing the Nasdaq Composite to settle at its lowest in about two weeks."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "QQQ",
+				"sentiment": "positive",
+				"sentimentReasoning": "The Invesco QQQ ETF, which tracks the Nasdaq-100 index, gained 0.25% in premarket trading, defying the weakness in Nvidia."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "positive",
+				"sentimentReasoning": "The SPDR S&P 500 ETF Trust rose 0.20% in premarket trading, also defying the Nvidia weakness."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SMCI",
+				"sentiment": "negative",
+				"sentimentReasoning": "A sharp pullback in the shares of Super Micro Computer weighed down on the tech space, which in turn dragged the major averages lower on Wednesday."
+			}
+		]
+	},
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "7324b90a90d71078366475c5edb3009d7492303b22d2629e42776ffa7fc20c08",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "The Motley Fool",
+			"homepageURL": "https://www.fool.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/themotleyfool.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/themotleyfool.ico"
+		},
+		"title": "The Stock Market Is the Greatest Wealth Generator Ever Devised. Here's Proof.",
+		"author": "Jake Lerch",
+		"publishedUTC": "2024-08-27T10:50:00Z",
+		"articleURL": "https://www.fool.com/investing/2024/08/27/the-stock-market-is-the-greatest-wealth-generator/?source=iedfolrf0000001",
+		"tickers": ["SPY", "AAPL", "MSFT"],
+		"imageURL": "https://g.foolcdn.com/editorial/images/788175/jar-full-of-hundred-dollar-bills-money-savings.jpg",
+		"description": "The article discusses the long-term benefits of investing in the stock market, particularly through index funds and individual stocks. It presents a hypothetical scenario where an initial $10,000 investment in the S&P 500 ETF (SPY) grows significantly over 30 years, despite market downturns, highlighting the power of compounding and long-term investing.",
+		"keywords": [
+			"investing",
+			"stock market",
+			"index funds",
+			"ETFs",
+			"long-term investing",
+			"compounding"
+		],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article presents the S&P 500 ETF (SPY) as a reliable and effective investment option for long-term wealth creation. The hypothetical scenario shows how an initial $10,000 investment in SPY grew significantly over 30 years, despite market downturns, highlighting the benefits of investing in a broad market index fund."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "AAPL",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article mentions that a $10,000 investment in Apple in 2007 (the year the iPhone was introduced) would have grown to $877,000 today, demonstrating the potential for significant returns from investing in individual stocks with long-term growth potential."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "MSFT",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article also mentions that a $5,000 investment in Microsoft in 1995 (the year Windows 95 was introduced) would have grown to $880,000 today, further highlighting the wealth-creating potential of investing in individual stocks with long-term growth prospects."
+			}
+		]
+	},
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "729412ac133412a4780de91ce0c59732cc323004b3d2d6fd4617ae6f2bb08caa",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "The Motley Fool",
+			"homepageURL": "https://www.fool.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/themotleyfool.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/themotleyfool.ico"
+		},
+		"title": "Here's How Much a $50-Per-Month Investment in a Top ETF Can Grow in 30 Years",
+		"author": "David Jagielski",
+		"publishedUTC": "2024-08-26T09:33:00Z",
+		"articleURL": "https://www.fool.com/investing/2024/08/26/heres-how-much-a-50-per-month-investment-in-a-top/?source=iedfolrf0000001",
+		"tickers": ["SPY", "VUG"],
+		"imageURL": "https://g.foolcdn.com/editorial/images/787598/rich-couple-on-a-boat.jpg",
+		"description": "Investing $50 per month in ETFs like the SPDR S&P 500 ETF Trust (SPY) and the Vanguard Growth Index Fund ETF (VUG) can significantly grow your retirement portfolio over 30 years, even with the effects of inflation. The article discusses the potential returns and benefits of this strategy.",
+		"keywords": ["ETFs", "retirement planning", "investing", "portfolio growth"],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article highlights the SPDR S&P 500 ETF Trust as a good way to gain exposure to the broad market and mirror its overall gains, which have averaged a compound annual growth rate of 10.6% over the past 20 years."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "VUG",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article suggests the Vanguard Growth Index Fund ETF as potentially more attractive than the S&P 500 ETF, as it focuses on the top U.S. growth stocks and has achieved returns of approximately 920% over the past 20 years, with a compound annual growth rate of 12.3%."
+			}
+		]
+	},
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "06f50ade84b18830a096772f792efd5199df19a72913e81a9addb38a3f5f0ea4",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "The Motley Fool",
+			"homepageURL": "https://www.fool.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/themotleyfool.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/themotleyfool.ico"
+		},
+		"title": "The Tortoise Beats the Hare: A 23-Year Study in Patient Investing",
+		"author": "Anders Bylund",
+		"publishedUTC": "2024-08-24T07:31:00Z",
+		"articleURL": "https://www.fool.com/investing/2024/08/24/a-23-year-study-in-patient-investing/?source=iedfolrf0000001",
+		"tickers": ["VOO", "SPY"],
+		"imageURL": "https://g.foolcdn.com/editorial/images/788135/growing-plants-in-coin-jars-dividends-growth-over-time.jpg",
+		"description": "The article emphasizes the importance of long-term investing in the stock market, using the S&P 500 index as an example. It highlights how modest daily returns can add up to significant gains over time, and encourages investors to focus on patient, long-term ownership rather than short-term market fluctuations.",
+		"keywords": ["stock market", "investing", "S&P 500", "long-term", "diversification"],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "VOO",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article recommends the Vanguard S&P 500 ETF as a way to gain diversified exposure to the S&P 500 index, noting that it can help investors achieve wealth-building success through patient, long-term ownership."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article also mentions the SPDR S&P 500 ETF Trust as another option for investors to gain exposure to the S&P 500 index, in addition to the Vanguard S&P 500 ETF."
+			}
+		]
+	},
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "2b0d605ed5cbccc603e1321312b3109a2c5a21b04d19613f40b7c96ff4ef501b",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "The Motley Fool",
+			"homepageURL": "https://www.fool.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/themotleyfool.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/themotleyfool.ico"
+		},
+		"title": "Billionaire Ken Griffin Nearly Doubled His Stake in Apple Stock in Q2. Here's Why It Could Pay Off Big Time.",
+		"author": "The Motley Fool",
+		"publishedUTC": "2024-08-22T09:50:00Z",
+		"articleURL": "https://www.fool.com/investing/2024/08/22/billionaire-ken-griffin-doubled-stake-apple/?source=iedfolrf0000001",
+		"tickers": ["AAPL", "SPY", "QQQ"],
+		"imageURL": "https://g.foolcdn.com/editorial/images/787859/apple-iphone-getty.jpg",
+		"description": "Billionaire Ken Griffin's Citadel Advisors hedge fund nearly doubled its stake in Apple in Q2, betting on a potential iPhone upgrade supercycle driven by the launch of Apple's new generative AI functionality. However, there are risks that could derail this strategy.",
+		"keywords": [
+			"Apple",
+			"Ken Griffin",
+			"Citadel Advisors",
+			"iPhone",
+			"AI",
+			"upgrade supercycle"
+		],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "AAPL",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article suggests that Griffin's increased investment in Apple could pay off big time if an iPhone upgrade supercycle materializes due to the launch of Apple's new generative AI functionality. This new AI feature is expected to drive higher iPhone sales and boost Apple's services revenue."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "positive",
+				"sentimentReasoning": "Griffin increased Citadel's stake in the SPDR S&P 500 ETF Trust, which has Apple as its largest holding. This suggests Griffin is bullish on the overall market and believes Apple's performance will contribute to the ETF's growth."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "QQQ",
+				"sentiment": "positive",
+				"sentimentReasoning": "Griffin also significantly increased Citadel's stake in the Invesco QQQ ETF, which has Apple as its largest holding. This further indicates Griffin's bullish sentiment on Apple and the broader technology sector."
+			}
+		]
+	},
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "1d39f67ca8d71495d72bdc3780ce5f89d6958339f8823b6474101596d2e6dcc2",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "The Motley Fool",
+			"homepageURL": "https://www.fool.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/themotleyfool.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/themotleyfool.ico"
+		},
+		"title": "This Simple ETF Could Turn $200 a Month Into $530,806",
+		"author": "Anders Bylund",
+		"publishedUTC": "2024-08-20T12:21:00Z",
+		"articleURL": "https://www.fool.com/investing/2024/08/20/this-simple-etf-could-turn-200-a-month-into-530806/?source=iedfolrf0000001",
+		"tickers": ["VOO", "SPY", "IVV"],
+		"imageURL": "https://g.foolcdn.com/editorial/images/787801/senior-person-sitting-on-couch-thinking-poc.jpg",
+		"description": "The article discusses how investing in an S&P 500 index fund, with a modest monthly contribution and dividend reinvestment, can lead to significant long-term returns. It highlights the power of compound growth and the benefits of index investing.",
+		"keywords": ["index investing", "S&P 500", "compound returns", "dividend reinvestment"],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "VOO",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article recommends the Vanguard S&P 500 ETF as the preferred index fund for its low fees and Vanguard's reputation for patient index investing."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "neutral",
+				"sentimentReasoning": "The article mentions the SPDR S&P 500 ETF Trust as a viable alternative to the Vanguard fund, but does not provide a strong recommendation for or against it."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "IVV",
+				"sentiment": "neutral",
+				"sentimentReasoning": "The article mentions the iShares Core S&P 500 ETF as another option for tracking the S&P 500 index, but does not provide a strong recommendation for or against it."
+			}
+		]
+	},
+	{
+		"__typename": "TickerSymbolNews",
+		"id": "cfdef772b01857f74677700524d514dc37ffdffbb3ea6abd871bd880606e1086",
+		"publisher": {
+			"__typename": "TickerSymbolNewsPublisher",
+			"name": "The Motley Fool",
+			"homepageURL": "https://www.fool.com/",
+			"logoURL": "https://s3.polygon.io/public/assets/news/logos/themotleyfool.svg",
+			"faviconURL": "https://s3.polygon.io/public/assets/news/favicons/themotleyfool.ico"
+		},
+		"title": "1 Surefire Warren Buffett Index Fund Could Turn $400 Per Month Into $902,000",
+		"author": "Trevor Jennewine",
+		"publishedUTC": "2024-08-20T09:12:00Z",
+		"articleURL": "https://www.fool.com/investing/2024/08/20/1-warren-buffett-index-fund-can-turn-400-to-902000/?source=iedfolrf0000001",
+		"tickers": ["VOO", "SPY", "BRK.A", "BRK.B"],
+		"imageURL": "https://g.foolcdn.com/editorial/images/787821/money-10.jpg",
+		"description": "The article discusses Warren Buffett's recommendation to invest in S&P 500 index funds, which have consistently outperformed most professional money managers over the long term. It highlights the strong historical returns of the S&P 500 and the benefits of a passive, diversified approach to investing.",
+		"keywords": ["S&P 500", "index funds", "Warren Buffett", "investing"],
+		"insights": [
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "VOO",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article recommends the Vanguard S&P 500 ETF as a good option for investors looking to gain exposure to the S&P 500 index, citing its low expense ratio and strong performance."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "SPY",
+				"sentiment": "neutral",
+				"sentimentReasoning": "The article mentions the SPDR S&P 500 ETF Trust as another option for investors, but notes that the Vanguard ETF is cheaper, which is the primary focus of the recommendation."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "BRK.A",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article highlights Warren Buffett's successful track record as an investor and business leader, which has made him an authority on the stock market and lends credibility to his recommendation of S&P 500 index funds."
+			},
+			{
+				"__typename": "TickerSymbolNewsInsight",
+				"ticker": "BRK.B",
+				"sentiment": "positive",
+				"sentimentReasoning": "The article highlights Warren Buffett's successful track record as an investor and business leader, which has made him an authority on the stock market and lends credibility to his recommendation of S&P 500 index funds."
+			}
+		]
+	}
+]

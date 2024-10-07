@@ -1,0 +1,68 @@
+{
+	"name": "@trading-assistant/common",
+	"version": "0.0.0",
+	"private": true,
+	"description": "Trading Assitant - Common",
+	"main": "./dist/index.js",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.js",
+			"import": "./dist/index.mjs"
+		},
+		"./enums": {
+			"types": "./dist/enums.d.ts",
+			"require": "./dist/enums.js",
+			"import": "./dist/enums.mjs"
+		},
+		"./interfaces": {
+			"types": "./dist/interfaces.d.ts",
+			"require": "./dist/interfaces.js",
+			"import": "./dist/interfaces.mjs"
+		},
+		"./schemas": {
+			"types": "./dist/schemas.d.ts",
+			"require": "./dist/schemas.js",
+			"import": "./dist/schemas.mjs"
+		},
+		"./util": {
+			"types": "./dist/util.d.ts",
+			"require": "./dist/util.js",
+			"import": "./dist/util.mjs"
+		}
+	},
+	"sideEffects": false,
+	"files": [
+		"dist/**"
+	],
+	"scripts": {
+		"dev": "tsup --watch",
+		"build": "tsup",
+		"test": "tsx --test ./src/**/*.spec.*",
+		"lint": "eslint \"src/**/*.ts\"",
+		"lint:fix": "eslint \"src/**/*.ts\" --fix",
+		"check-types": "tsc --noEmit"
+	},
+	"keywords": [],
+	"author": "Doug Frei <doug@dougfrei.com>",
+	"license": "AGPL-3.0-or-later",
+	"devDependencies": {
+		"@eslint/js": "^9.12.0",
+		"@types/eslint__js": "^8.42.3",
+		"@types/node": "^22.7.4",
+		"date-fns": "^3.6.0",
+		"eslint": "^9.12.0",
+		"nanoid": "^3.3.7",
+		"tsup": "^8.2.4",
+		"tsx": "^4.19.0",
+		"typescript-eslint": "^8.8.0",
+		"valibot": "1.0.0-beta.0"
+	},
+	"peerDependencies": {
+		"date-fns": "^2.30.0",
+		"nanoid": "^3.3.7",
+		"valibot": "1.0.0-beta.0"
+	}
+}

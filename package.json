@@ -1,0 +1,10 @@
+{
+	"name": "trading-assistant",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Trading Assistant is a web application designed to assist financial market traders with market analysis and provide journaling functionality",
+	"keywords": [],
+	"author": "Doug Frei <doug@dougfrei.com>",
+	"license": "AGPL-3.0-or-later",
+	"packageManager": "pnpm@9.0.0"
+}

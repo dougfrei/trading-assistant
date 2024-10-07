@@ -1,0 +1,10 @@
+.appHeader {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	gap: var(--mantine-spacing-md);
+	align-items: center;
+
+	@media (width >= $mantine-breakpoint-md) {
+		grid-template-columns: 1fr auto;
+	}
+}

@@ -1,0 +1,246 @@
+{
+	"Financial Services": {
+		"sectorGCIS": "40",
+		"fullGCIS": {
+			"Insurance—Diversified": "403010",
+			"Credit Services": "4020",
+			"Banks—Diversified": "40101010",
+			"Asset Management": "40203010",
+			"Financial Data & Stock Exchanges": "40203040",
+			"Capital Markets": "402030",
+			"Banks—Regional": "40101015",
+			"Insurance—Property & Casualty": "40301040",
+			"Insurance Brokers": "40301010",
+			"Banks - Regional": "40101015",
+			"Insurance—Life": "40301020",
+			"Mortgage Finance": "40201050",
+			"Insurance—Reinsurance": "40301050",
+			"Insurance—Specialty": "403010",
+			"Financial Conglomerates": "40",
+			"Insurance - Diversified": "403010",
+			"Shell Companies": "40",
+			"Insurance - Reinsurance": "40301050",
+			"Banking Services": "401010",
+			"Investment Holding Companies": "40203020",
+			"Closed-End Fund - Equity": "4020",
+			"Investment Banking & Investment Services": "40203020",
+			"Insurance - Life": "40301020"
+		}
+	},
+	"Healthcare": {
+		"sectorGCIS": "35",
+		"fullGCIS": {
+			"Drug Manufacturers—General": "3520",
+			"Biotechnology": "35201010",
+			"Healthcare Plans": "351020",
+			"Diagnostics & Research": "351030",
+			"Medical Devices": "351010",
+			"Drug Manufacturers—Specialty & Generic": "3520",
+			"Medical Care Facilities": "35102020",
+			"Medical Instruments & Supplies": "351010",
+			"Medical Distribution": "35102010",
+			"Health Information Services": "35103010",
+			"Pharmaceutical Retailers": "35202010",
+			"Pharmaceuticals": "35202010"
+		}
+	},
+	"Technology": {
+		"sectorGCIS": "45",
+		"fullGCIS": {
+			"Semiconductors": "45301020",
+			"Software—Infrastructure": "45103020",
+			"Software—Application": "45103010",
+			"Information Technology Services": "451020",
+			"Consumer Electronics": "4520",
+			"Computer Hardware": "4520",
+			"Electronic Components": "45203015",
+			"Communication Equipment": "45201020",
+			"Scientific & Technical Instruments": "4520",
+			"Telecom Services - Foreign": "451020",
+			"Electronics & Computer Distribution": "45203030",
+			"Semiconductor Equipment & Materials": "45301010",
+			"Solar": "4520",
+			"Software - Application": "45103010",
+			"Software & IT Services": "4510",
+			"Software - Infrastructure": "45103020"
+		}
+	},
+	"Consumer Defensive": {
+		"sectorGCIS": "30",
+		"fullGCIS": {
+			"Discount Stores": "30101040",
+			"Household & Personal Products": "30101040",
+			"Beverages—Non-Alcoholic": "30201030",
+			"Tobacco": "30203010",
+			"Beverages—Brewers": "30201010",
+			"Beverages—Wineries & Distilleries": "30201020",
+			"Food Distribution": "30101020",
+			"Confectioners": "302020",
+			"Packaged Foods": "30202030",
+			"Grocery Stores": "30101020",
+			"Farm Products": "30202010",
+			"Education & Training Services": "3010"
+		}
+	},
+	"Energy": {
+		"sectorGCIS": "10",
+		"fullGCIS": {
+			"Oil & Gas Integrated": "10102010",
+			"Oil & Gas E&P": "10102020",
+			"Oil & Gas Midstream": "101020",
+			"Oil & Gas Equipment & Services": "10101020",
+			"Oil & Gas Refining & Marketing": "10102030",
+			"Uranium": "1010",
+			"Oil & Gas Drilling": "10101010",
+			"Thermal Coal": "1010"
+		}
+	},
+	"Consumer Cyclical": {
+		"sectorGCIS": "25",
+		"fullGCIS": {
+			"Home Improvement Retail": "25504030",
+			"Auto Manufacturers": "25102010",
+			"Restaurants": "25301040",
+			"Internet Retail": "25504020",
+			"Footwear & Accessories": "25203010",
+			"Apparel Retail": "25203010",
+			"Lodging": "25301020",
+			"Specialty Retail": "255040",
+			"Residential Construction": "25201030",
+			"Resorts & Casinos": "253010",
+			"Travel Services": "253010",
+			"Auto Parts": "25101010",
+			"Personal Services": "25302020",
+			"Leisure": "25301030",
+			"Packaging & Containers": "2550",
+			"Auto & Truck Dealerships": "2510",
+			"Apparel Manufacturing": "25203010",
+			"Luxury Goods": "25203010",
+			"Furnishings, Fixtures & Appliances": "25201020",
+			"Department Stores": "25503030",
+			"Recreational Vehicles": "251020",
+			"Gambling": "25301010",
+			"Textile Manufacturing": "25203030",
+			"Retail Apparel & Specialty": "255040"
+		}
+	},
+	"Communication Services": {
+		"sectorGCIS": "50",
+		"fullGCIS": {
+			"Entertainment": "502020",
+			"Telecom Services": "5010",
+			"Publishing": "50201040",
+			"Internet Content & Information": "5020",
+			"Electronic Gaming & Multimedia": "5020",
+			"Advertising Agencies": "50201010",
+			"Broadcasting": "50201020"
+		}
+	},
+	"Industrials": {
+		"sectorGCIS": "20",
+		"fullGCIS": {
+			"Farm & Heavy Construction Machinery": "20106015",
+			"Railroads": "2030",
+			"Specialty Industrial Machinery": "201060",
+			"Aerospace & Defense": "20101010",
+			"Integrated Freight & Logistics": "20301010",
+			"Waste Management": "2020",
+			"Specialty Business Services": "202010",
+			"Building Products & Equipment": "20102010",
+			"Conglomerates": "20105010",
+			"Industrial Distribution": "20107010",
+			"Rental & Leasing Services": "20201060",
+			"Consulting Services": "202010",
+			"Engineering & Construction": "20103010",
+			"Airlines": "20302010",
+			"Electrical Equipment & Parts": "20104010",
+			"Pollution And Treatment Controls": "20201050",
+			"Business Equipment & Supplies": "202010",
+			"Tools & Accessories": "2010",
+			"Trucking": "20304030",
+			"Security & Protection Services": "202020",
+			"Airports & Air Services": "20305010",
+			"Staffing & Employment Services": "20202010",
+			"Metal Fabrication": "2010",
+			"Pollution & Treatment Controls": "2020",
+			"Marine Shipping": "20303010",
+			"Infrastructure Operations": "2020",
+			"Finance/Rental/Leasing": "2020"
+		}
+	},
+	"Basic Materials": {
+		"sectorGCIS": "15",
+		"fullGCIS": {
+			"Other Industrial Metals & Mining": "15104020",
+			"Specialty Chemicals": "15101050",
+			"Copper": "15104025",
+			"Building Materials": "15102010",
+			"Steel": "15104050",
+			"Gold": "15104030",
+			"Chemicals": "151010",
+			"Agricultural Inputs": "15101030",
+			"Paper & Paper Products": "15105020",
+			"Lumber & Wood Production": "15105010",
+			"Coking Coal": "1510",
+			"Aluminum": "15104010",
+			"Other Precious Metals & Mining": "15104040",
+			"Independent Oil & Gas": "1510",
+			"Silver": "15104045"
+		}
+	},
+	"Real Estate": {
+		"sectorGCIS": "60",
+		"fullGCIS": {
+			"REIT—Industrial": "60102510",
+			"REIT—Specialty": "601080",
+			"REIT—Healthcare Facilities": "60105010",
+			"REIT—Retail": "60107010",
+			"REIT—Office": "60104010",
+			"REIT—Diversified": "60101010",
+			"Real Estate Services": "60201040",
+			"REIT—Residential": "601060",
+			"REIT—Mortgage": "6010",
+			"REIT—Hotel & Motel": "60103010",
+			"REIT - Office": "60104010",
+			"Real Estate—Diversified": "602010",
+			"Real Estate - Development": "60201030",
+			"Real Estate—Development": "60201030"
+		}
+	},
+	"Utilities": {
+		"sectorGCIS": "55",
+		"fullGCIS": {
+			"Utilities—Regulated Electric": "55101010",
+			"Utilities—Diversified": "55103010",
+			"Utilities—Regulated Water": "55104010",
+			"Utilities—Regulated Gas": "55102010",
+			"Utilities—Independent Power Producers": "55105010",
+			"Utilities—Renewable": "55105020",
+			"Utilities - Renewable": "55105020"
+		}
+	},
+	"Finance": {
+		"sectorGCIS": "40",
+		"fullGCIS": {
+			"Property/Casualty Insurance": "40301040",
+			"Investment Managers": "40203020",
+			"Real Estate Investment Trusts": "40204010",
+			"Finance/Rental/Leasing": "40201050",
+			"Financial Conglomerates": "401010"
+		}
+	},
+	"Miscellaneous": {
+		"sectorGCIS": "40",
+		"fullGCIS": { "Investment Trusts/Mutual Funds": "402040" }
+	},
+	"Health Services": { "sectorGCIS": "35", "fullGCIS": { "Medical/Nursing Services": "351020" } },
+	"Distribution Services": {
+		"sectorGCIS": "25",
+		"fullGCIS": { "Electronics Distributors": "25504020" }
+	},
+	"Technology Services": { "sectorGCIS": "45", "fullGCIS": { "Packaged Software": "451030" } },
+	"Producer Manufacturing": {
+		"sectorGCIS": "45",
+		"fullGCIS": { "Miscellaneous Manufacturing": "4520" }
+	}
+}

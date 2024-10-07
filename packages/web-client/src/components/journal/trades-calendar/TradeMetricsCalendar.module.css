@@ -1,0 +1,58 @@
+.root {
+	display: grid;
+	gap: var(--mantine-spacing-xs);
+}
+
+.rootDay {
+	grid-template-columns: repeat(7, 1fr);
+}
+
+.rootMonth {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.cell {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: var(--mantine-radius-sm);
+	padding: var(--mantine-spacing-xs);
+	background-color: var(--mantine-color-gray-8);
+}
+
+.cellBgPositive {
+	background-color: var(--mantine-color-green-9);
+}
+
+.cellBgNegative {
+	background-color: var(--mantine-color-red-9);
+}
+
+.cellBgNeutral {
+	background-color: var(--mantine-color-dark-8);
+}
+
+.cellHeader {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: var(--mantine-spacing-xs);
+}
+
+.cellFooter {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.dayOfWeek {
+	text-align: center;
+	font-weight: bold;
+}
+
+.dayOfMonth {
+	font-weight: bold;
+}
+
+/* .numTrades {
+} */
