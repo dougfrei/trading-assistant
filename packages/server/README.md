@@ -58,8 +58,8 @@ Note that when using the Polygon.io free tier, data will not be available until 
 # Import the next available open market day daily candle data from Polygon.io
 $ pnpm run cli import-daily-candle-data
 
-# Run candle analysis process
-$ pnpm run cli analyze-candles
+# Run candle analysis process in delta update mode so only the new period is processed
+$ pnpm run cli analyze-candles -d
 ```
 
 ## Running the app

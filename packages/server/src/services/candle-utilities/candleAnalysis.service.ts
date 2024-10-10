@@ -30,7 +30,6 @@ interface IAVWAPGroup {
 @Injectable()
 export class CandleAnalysisService {
 	public progressEmitter = new TypedEventEmitter<TCandleAnalysisEmitter>();
-	public debugPerformance = false;
 
 	constructor(
 		private readonly dbCandleService: DbCandleService,
@@ -51,13 +50,11 @@ export class CandleAnalysisService {
 		analyzerSet: BaseAnalyzer[],
 		{
 			periodType = ECandlePeriodType.D,
-			limitCandleCount = 0,
-			isDeltaUpdate = false,
+			deltaUpdate = false,
 			resetIndicatorsAndAlerts = false
 		}: {
 			periodType?: ECandlePeriodType;
-			limitCandleCount?: number;
-			isDeltaUpdate?: boolean;
+			deltaUpdate?: boolean;
 			resetIndicatorsAndAlerts?: boolean;
 		} = {}
 	) {
@@ -67,13 +64,22 @@ export class CandleAnalysisService {
 
 		performance.mark('analyze-start');
 
+		// NOTE: Normally, this would be 'period_asc', but in the event of a delta
+		// update where we limit the number of candles returned we want to ensure
+		// that we're returning the most recent candles. The order is corrected
+		// below in the 'getCandlesByTickerSymbolId' call where the returned order
+		// is reversed.
 		const getCandlesParams: IGetCandlesArgs = {
 			periodType,
 			order: 'period_desc'
 		};
 
-		if (limitCandleCount) {
-			getCandlesParams.limit = limitCandleCount;
+		if (deltaUpdate) {
+			const numDeltaCandles = Math.max(
+				...analyzerSet.map((analyzer) => analyzer.getMinimumRequiredCandles())
+			);
+
+			getCandlesParams.limit = numDeltaCandles;
 		}
 
 		let sourceCandles = (
@@ -88,9 +94,9 @@ export class CandleAnalysisService {
 		}
 
 		if (resetIndicatorsAndAlerts) {
-			if (limitCandleCount) {
+			if (deltaUpdate) {
 				throw new Error(
-					'resetting indicators and alerts is not possible when limiting the amount of candles analyzed'
+					'resetting indicators and alerts is not possible when performing a delta update'
 				);
 			} else {
 				sourceCandles = sourceCandles.map((candle) => {
@@ -114,31 +120,23 @@ export class CandleAnalysisService {
 
 		performance.mark('analyze-end');
 
-		const valueClauses = analyzedCandles.reduce<string[]>((acum, analyzedCandle, index) => {
-			if (isDeltaUpdate) {
-				// iterate through the analyzed indicator keys and return true if:
-				// - the analyzed indicator key does not exist in the original candle
-				// OR
-				// - the analyzed inidicator key value is different from the original value
-				const hasChange = Array.from(analyzedCandle.indicators).some(
-					([indicatorKey, newValue]) =>
-						typeof sourceCandles[index].indicators.get(indicatorKey) === 'undefined' ||
-						newValue !== sourceCandles[index].indicators.get(indicatorKey)
-				);
+		// gather the candle records needed to create the update value clauses
+		const candlesForValueClauses = deltaUpdate ? [] : analyzedCandles;
 
-				// ignore this candle if it doesn't pass the "hasChange" test above
-				if (!hasChange) {
-					return acum;
-				}
+		if (deltaUpdate) {
+			const lastCandle = analyzedCandles.at(-1);
+
+			if (lastCandle) {
+				candlesForValueClauses.push(lastCandle);
 			}
+		}
 
-			acum.push(
-				`(${analyzedCandle.id}, '${JSON.stringify(Object.fromEntries(analyzedCandle.indicators))}'::json, '${JSON.stringify(Array.from(analyzedCandle.alerts))}'::json)`
-			);
+		const valueClauses = candlesForValueClauses.map(
+			(candle) =>
+				`(${candle.id}, '${JSON.stringify(Object.fromEntries(candle.indicators))}'::json, '${JSON.stringify(Array.from(candle.alerts))}'::json)`
+		);
 
-			return acum;
-		}, []);
-
+		// update the candle records
 		if (valueClauses.length) {
 			// NOTE: An alternate way of doing this batch update is with the "onConflict" clause.
 			// If the method below isn't performing well on large updates, this method could be tested.
@@ -168,28 +166,24 @@ export class CandleAnalysisService {
 				.where('candles.id', '=', sql`c.ref_id`)
 				.executeTakeFirst();
 
-			if (this.debugPerformance) {
-				console.log(`DB updated with ${updateRes.numUpdatedRows} rows modified`);
-			}
+			this.progressEmitter.emit('analysis:debug', {
+				tickerSymbolName: tickerSymbolRecord.name,
+				periodType,
+				message: `DB updated with ${updateRes.numUpdatedRows} rows modified`
+			});
 		}
 
 		performance.mark('db-update-end');
 
-		if (this.debugPerformance) {
-			console.log(
-				`${tickerSymbolRecord.name}: analysis benchmarks (${periodType} period type)`,
-				{
-					analyze: performance.measure('analyze-duration', 'analyze-start', 'analyze-end')
-						.duration,
-					dbUpdate: performance.measure(
-						'db-update-duration',
-						'analyze-end',
-						'db-update-end'
-					).duration,
-					total: performance.measure('total', 'analyze-start', 'db-update-end').duration
-				}
-			);
-		}
+		this.progressEmitter.emit('analysis:benchmarks', {
+			tickerSymbolName: tickerSymbolRecord.name,
+			periodType,
+			analyze: performance.measure('analyze-duration', 'analyze-start', 'analyze-end')
+				.duration,
+			dbUpdate: performance.measure('db-update-duration', 'analyze-end', 'db-update-end')
+				.duration,
+			total: performance.measure('total', 'analyze-start', 'db-update-end').duration
+		});
 	}
 
 	/**
@@ -203,10 +197,12 @@ export class CandleAnalysisService {
 		tickerSymbols: string[],
 		{
 			periodTypes = [ECandlePeriodType.D, ECandlePeriodType.W],
-			resetIndicatorsAndAlerts = false
+			resetIndicatorsAndAlerts = false,
+			deltaUpdate = false
 		}: {
 			periodTypes?: ECandlePeriodType[];
 			resetIndicatorsAndAlerts?: boolean;
+			deltaUpdate?: boolean;
 		} = {}
 	) {
 		const refCandlesMap = new Map<string, Candle[]>();
@@ -292,7 +288,8 @@ export class CandleAnalysisService {
 						analyzerSet,
 						{
 							periodType,
-							resetIndicatorsAndAlerts
+							resetIndicatorsAndAlerts,
+							deltaUpdate: deltaUpdate
 						}
 					);
 				} catch (err: unknown) {

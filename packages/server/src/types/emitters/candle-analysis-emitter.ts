@@ -13,6 +13,14 @@ type TCandleAnalysisEmitter = {
 		tickerSymbol: string;
 		periodType: ECandlePeriodType;
 	};
+	'analysis:benchmarks': {
+		tickerSymbolName: string;
+		periodType: ECandlePeriodType;
+		analyze: number;
+		dbUpdate: number;
+		total: number;
+	};
+	'analysis:debug': { tickerSymbolName: string; periodType: ECandlePeriodType; message: string };
 };
 
 export default TCandleAnalysisEmitter;
