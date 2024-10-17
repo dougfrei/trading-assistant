@@ -16,4 +16,6 @@ const PriceNumberInput = forwardRef<HTMLInputElement, NumberInputProps>((props, 
 	);
 });
 
+PriceNumberInput.displayName = 'PriceNumberInput';
+
 export default PriceNumberInput;

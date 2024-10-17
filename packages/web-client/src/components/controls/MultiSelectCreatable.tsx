@@ -105,7 +105,9 @@ export const MultiSelectCreatable: React.FC<{
 						{options}
 
 						{!exactOptionMatch && search.trim().length > 0 && (
-							<Combobox.Option value="$create">+ Add "{search}"</Combobox.Option>
+							<Combobox.Option value="$create">
+								+ Add &quot;{search}&quot;
+							</Combobox.Option>
 						)}
 
 						{exactOptionMatch && search.trim().length > 0 && options.length === 0 && (
