@@ -4,23 +4,20 @@ type TCandleAnalysisEmitter = {
 	'analysis:start': { totalCount: number };
 	'analysis:end': { totalCount: number };
 	'analysis:process-ticker-symbol': {
-		tickerSymbol: string;
+		tickerSymbolName: string;
 		currentIndex: number;
 		totalCount: number;
 	};
 	'analysis:error': {
 		message: string;
-		tickerSymbol: string;
-		periodType: ECandlePeriodType;
+		tickerSymbolName?: string;
+		periodType?: ECandlePeriodType;
 	};
-	'analysis:benchmarks': {
-		tickerSymbolName: string;
-		periodType: ECandlePeriodType;
-		analyze: number;
-		dbUpdate: number;
-		total: number;
+	'analysis:debug': {
+		message: string;
+		tickerSymbolName?: string;
+		periodType?: ECandlePeriodType;
 	};
-	'analysis:debug': { tickerSymbolName: string; periodType: ECandlePeriodType; message: string };
 };
 
 export default TCandleAnalysisEmitter;

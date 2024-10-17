@@ -30,6 +30,9 @@ interface IAVWAPGroup {
 @Injectable()
 export class CandleAnalysisService {
 	public progressEmitter = new TypedEventEmitter<TCandleAnalysisEmitter>();
+	public updateCandlesQueueLimit = 5000;
+
+	protected updateCandlesQueue: Candle[] = [];
 
 	constructor(
 		private readonly dbCandleService: DbCandleService,
@@ -37,6 +40,75 @@ export class CandleAnalysisService {
 		private readonly db: Database,
 		private readonly appConfig: AppConfigService
 	) {}
+
+	protected async processUpdateCandlesQueue(force = false) {
+		if (!force && this.updateCandlesQueue.length < this.updateCandlesQueueLimit) {
+			return;
+		}
+
+		const valueClauses = this.updateCandlesQueue.map(
+			(candle) =>
+				`(${candle.id}, '${JSON.stringify(Object.fromEntries(candle.indicators))}'::json, '${JSON.stringify(Array.from(candle.alerts))}'::json)`
+		);
+
+		// update the candle records
+		if (valueClauses.length) {
+			// NOTE: An alternate way of doing this batch update is with the "onConflict" clause.
+			// If the method below isn't performing well on large updates, this method could be tested.
+			//
+			// const upsertRes = await this.db
+			// 	.insertInto('candles')
+			// 	.values([{ id: 1, indicators: '[]' }])
+			// 	.onConflict((oc) =>
+			// 		oc
+			// 			.column('id')
+			// 			.doUpdateSet({ indicators: sql`excluded.indicators` })
+			// 	)
+			// 	.executeTakeFirst();
+
+			try {
+				performance.mark('db-update-start');
+
+				const updateRes = await this.db
+					.updateTable('candles')
+					.from(
+						// @ts-expect-error Kysely doesn't seem to have a way to do this without a typing error
+						sql`(VALUES ${sql.raw(valueClauses.join(','))}) AS c(ref_id, new_indicators, new_alerts)`
+					)
+					.set({
+						// @ts-expect-error Kysely doesn't seem to have a way to do this without a typing error
+						indicators: sql`c.new_indicators`,
+						alerts: sql`c.new_alerts`
+					})
+					// @ts-expect-error Kysely doesn't seem to have a way to do this without a typing error
+					.where('candles.id', '=', sql`c.ref_id`)
+					.executeTakeFirstOrThrow();
+
+				performance.mark('db-update-end');
+
+				const dbUpdateDuration = performance.measure(
+					'db-update-duration',
+					'db-update-start',
+					'db-update-end'
+				).duration;
+
+				this.progressEmitter.emit('analysis:debug', {
+					message: `DB updated with ${updateRes.numUpdatedRows} candle rows modified (${dbUpdateDuration})`
+				});
+
+				this.updateCandlesQueue = [];
+			} catch (err: unknown) {
+				const errObj = getErrorObject(
+					err,
+					'An error occurred while updating the candle records'
+				);
+
+				this.progressEmitter.emit('analysis:error', {
+					message: errObj.message
+				});
+			}
+		}
+	}
 
 	/**
 	 * Run the provided analyzers on the specified TickerSymbol object
@@ -113,7 +185,7 @@ export class CandleAnalysisService {
 		if (analyzeErrors.length) {
 			this.progressEmitter.emit('analysis:error', {
 				message: analyzeErrors.join(', '),
-				tickerSymbol: tickerSymbolRecord.name,
+				tickerSymbolName: tickerSymbolRecord.name,
 				periodType
 			});
 		}
@@ -121,69 +193,19 @@ export class CandleAnalysisService {
 		performance.mark('analyze-end');
 
 		// gather the candle records needed to create the update value clauses
-		const candlesForValueClauses = deltaUpdate ? [] : analyzedCandles;
+		const dbUpdateCandles = deltaUpdate ? [] : analyzedCandles;
 
 		if (deltaUpdate) {
 			const lastCandle = analyzedCandles.at(-1);
 
 			if (lastCandle) {
-				candlesForValueClauses.push(lastCandle);
+				dbUpdateCandles.push(lastCandle);
 			}
 		}
 
-		const valueClauses = candlesForValueClauses.map(
-			(candle) =>
-				`(${candle.id}, '${JSON.stringify(Object.fromEntries(candle.indicators))}'::json, '${JSON.stringify(Array.from(candle.alerts))}'::json)`
-		);
+		this.updateCandlesQueue = [...this.updateCandlesQueue, ...dbUpdateCandles];
 
-		// update the candle records
-		if (valueClauses.length) {
-			// NOTE: An alternate way of doing this batch update is with the "onConflict" clause.
-			// If the method below isn't performing well on large updates, this method could be tested.
-			//
-			// const upsertRes = await this.db
-			// 	.insertInto('candles')
-			// 	.values([{ id: 1, indicators: '[]' }])
-			// 	.onConflict((oc) =>
-			// 		oc
-			// 			.column('id')
-			// 			.doUpdateSet({ indicators: sql`excluded.indicators` })
-			// 	)
-			// 	.executeTakeFirst();
-
-			const updateRes = await this.db
-				.updateTable('candles')
-				.from(
-					// @ts-expect-error Kysely doesn't seem to have a way to do this without a typing error
-					sql`(VALUES ${sql.raw(valueClauses.join(','))}) AS c(ref_id, new_indicators, new_alerts)`
-				)
-				.set({
-					// @ts-expect-error Kysely doesn't seem to have a way to do this without a typing error
-					indicators: sql`c.new_indicators`,
-					alerts: sql`c.new_alerts`
-				})
-				// @ts-expect-error Kysely doesn't seem to have a way to do this without a typing error
-				.where('candles.id', '=', sql`c.ref_id`)
-				.executeTakeFirst();
-
-			this.progressEmitter.emit('analysis:debug', {
-				tickerSymbolName: tickerSymbolRecord.name,
-				periodType,
-				message: `DB updated with ${updateRes.numUpdatedRows} rows modified`
-			});
-		}
-
-		performance.mark('db-update-end');
-
-		this.progressEmitter.emit('analysis:benchmarks', {
-			tickerSymbolName: tickerSymbolRecord.name,
-			periodType,
-			analyze: performance.measure('analyze-duration', 'analyze-start', 'analyze-end')
-				.duration,
-			dbUpdate: performance.measure('db-update-duration', 'analyze-end', 'db-update-end')
-				.duration,
-			total: performance.measure('total', 'analyze-start', 'db-update-end').duration
-		});
+		await this.processUpdateCandlesQueue();
 	}
 
 	/**
@@ -221,7 +243,7 @@ export class CandleAnalysisService {
 
 		for (let i = 0; i < tickerSymbolRecords.length; i++) {
 			this.progressEmitter.emit('analysis:process-ticker-symbol', {
-				tickerSymbol: tickerSymbolRecords[i].name,
+				tickerSymbolName: tickerSymbolRecords[i].name,
 				currentIndex: i + 1,
 				totalCount: tickerSymbolRecords.length
 			});
@@ -295,12 +317,15 @@ export class CandleAnalysisService {
 				} catch (err: unknown) {
 					this.progressEmitter.emit('analysis:error', {
 						message: getErrorObject(err).message,
-						tickerSymbol: tickerSymbolRecords[i].name,
+						tickerSymbolName: tickerSymbolRecords[i].name,
 						periodType
 					});
 				}
 			}
 		}
+
+		// force process update candle queue to catch any leftovers
+		await this.processUpdateCandlesQueue(true);
 
 		this.progressEmitter.emit('analysis:end', { totalCount: tickerSymbolRecords.length });
 	}

@@ -60,13 +60,9 @@ class AnalyzeCandlesTask extends CLITask {
 		if (this.verboseMode) {
 			candleAnalysisService.progressEmitter.on(
 				'analysis:debug',
-				({ tickerSymbolName, periodType, message }) =>
+				({ tickerSymbolName = '', periodType = '', message }) =>
 					console.log(`[${tickerSymbolName} | ${periodType}] ${message}`)
 			);
-
-			candleAnalysisService.progressEmitter.on('analysis:benchmarks', (params) => {
-				console.table(params);
-			});
 		} else {
 			const progressBar = new CLIProgress.SingleBar({
 				format: ' {bar} | {percentage}% | {value}/{total} | {tickerSymbol}',
@@ -85,9 +81,9 @@ class AnalyzeCandlesTask extends CLITask {
 
 			candleAnalysisService.progressEmitter.on(
 				'analysis:process-ticker-symbol',
-				({ tickerSymbol, currentIndex }) => {
+				({ tickerSymbolName, currentIndex }) => {
 					progressBar.update(currentIndex, {
-						tickerSymbol
+						tickerSymbolName
 					});
 				}
 			);
@@ -95,8 +91,8 @@ class AnalyzeCandlesTask extends CLITask {
 
 		candleAnalysisService.progressEmitter.on(
 			'analysis:error',
-			({ message, tickerSymbol, periodType }) => {
-				errors.push(`${tickerSymbol} (${periodType}): ${message}`);
+			({ message, tickerSymbolName, periodType }) => {
+				errors.push(`${tickerSymbolName} (${periodType}): ${message}`);
 			}
 		);
 
