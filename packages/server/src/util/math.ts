@@ -69,7 +69,10 @@ export function toFixedDecimals(value: number, precision = 2): number {
 		precision = 20;
 	}
 
-	return parseFloat(value.toFixed(precision));
+	const fixedValue = parseFloat(value.toFixed(precision));
+
+	// safe-guard to prevent -0 values from being returned
+	return Object.is(fixedValue, -0) ? 0 : parseFloat(value.toFixed(precision));
 }
 
 /**

@@ -11,6 +11,7 @@ import { isCandleIndicatorNumericValue } from 'src/util/candle';
 import { twoDecimals } from 'src/util/math';
 import { SMA } from 'technicalindicators';
 import BaseAnalyzer from '../BaseAnalyzer';
+import SimpleMovingAverage from '../indicators/SimpleMovingAverage';
 
 interface IVWRRSAnalyzerParams {
 	refCandles: Candle[];
@@ -21,6 +22,7 @@ interface IVWRRSAnalyzerParams {
 	rollingPeriodVolShort?: number;
 	rollingPeriodVolLong?: number;
 	refTickerSymbol?: string;
+	rollingPeriodDeltaDivergence?: number;
 }
 
 export class VWRRSAnalyzer extends BaseAnalyzer {
@@ -40,6 +42,7 @@ export class VWRRSAnalyzer extends BaseAnalyzer {
 	protected indicatorLabel = 'Volume-weighted Real Relative Strength';
 	protected refCandles: Candle[] = [];
 	protected refLabel = 'market';
+	protected rollingPeriodDeltaDivergence = 21;
 
 	public refTickerSymbol = '';
 
@@ -51,7 +54,8 @@ export class VWRRSAnalyzer extends BaseAnalyzer {
 		indicatorLabel = 'Volume-weighted Real Relative Strength',
 		refCandles = [],
 		refLabel = 'market',
-		refTickerSymbol = ''
+		refTickerSymbol = '',
+		rollingPeriodDeltaDivergence = 21
 	}: IVWRRSAnalyzerParams) {
 		super();
 
@@ -63,6 +67,7 @@ export class VWRRSAnalyzer extends BaseAnalyzer {
 		this.refCandles = refCandles;
 		this.refLabel = refLabel;
 		this.refTickerSymbol = refTickerSymbol;
+		this.rollingPeriodDeltaDivergence = rollingPeriodDeltaDivergence;
 	}
 
 	getChartTypes(): ICandleAnalyzerChartType[] {
@@ -134,7 +139,12 @@ export class VWRRSAnalyzer extends BaseAnalyzer {
 
 	getMinimumRequiredCandles() {
 		return (
-			Math.max(this.rollingPeriod, this.rollingPeriodVolLong, this.rollingPeriodVolShort) + 2
+			Math.max(
+				this.rollingPeriod,
+				this.rollingPeriodVolLong,
+				this.rollingPeriodVolShort,
+				this.rollingPeriodDeltaDivergence
+			) + 2
 		);
 	}
 
@@ -323,6 +333,8 @@ export class VWRRSAnalyzer extends BaseAnalyzer {
 			)
 		};
 
+		const deltaSMA = new SimpleMovingAverage(this.rollingPeriodDeltaDivergence);
+
 		// add indicator
 		candles.forEach((curCandle, index, allCandles) => {
 			let vwrrsValue: number | null = null;
@@ -385,6 +397,25 @@ export class VWRRSAnalyzer extends BaseAnalyzer {
 				`${this.indicatorKey}_trend`,
 				prevCandle ? this.calcTrendValue(curCandle, prevCandle) : null
 			);
+
+			// calculate VWRRS delta divergence values
+			let deltaDivergence: number | null = null;
+
+			const prevVWRRSvalue = prevCandle?.indicators.get(this.indicatorKey);
+
+			if (
+				isCandleIndicatorNumericValue(vwrrsValue) &&
+				isCandleIndicatorNumericValue(prevVWRRSvalue)
+			) {
+				const vwrrsDelta = Math.abs(vwrrsValue - prevVWRRSvalue);
+				const deltaAvg = deltaSMA.push(vwrrsDelta);
+
+				if (deltaAvg !== null) {
+					deltaDivergence = twoDecimals(vwrrsDelta - deltaAvg);
+				}
+			}
+
+			curCandle.indicators.set(`${this.indicatorKey}_dd`, deltaDivergence);
 
 			// add notices
 			if (prevCandle) {

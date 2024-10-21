@@ -21,17 +21,16 @@ describe('Analyzer - VWRRS', () => {
 
 		srcCandles = srcParseRes?.tickers['AAPL']?.candles ?? [];
 
-		const refFileBug = readFileSync(
+		const refFileBuf = readFileSync(
 			`${process.cwd()}/test/mock-data/stooq/daily/spy.20240607.txt`
 		);
 
-		const refParseRes = parseStooqCSVcontent(refFileBug.toString().trim(), {
+		const refParseRes = parseStooqCSVcontent(refFileBuf.toString().trim(), {
 			limitCount: 50
 		});
 
 		refCandles = refParseRes?.tickers['SPY']?.candles ?? [];
 
-		// const analyzer = new ATRAnalyzer({ period: 14 });
 		const analyzer = new VWRRSAnalyzer({
 			refCandles,
 			rollingPeriod: 21,
@@ -49,14 +48,31 @@ describe('Analyzer - VWRRS', () => {
 
 	it('should generate correct values', () => {
 		const values = processedCandles.map((candle) => candle.indicators.get('vwrrs') ?? null);
+
+		const lastFiveValues = values.slice(values.length - 5);
+
+		assert.deepEqual(lastFiveValues, [3.31, 2.74, 2.02, 1.08, 2.25]);
+	});
+
+	it('should generate correct trend values', () => {
 		const trendValues = processedCandles.map(
 			(candle) => candle.indicators.get('vwrrs_trend') ?? null
 		);
 
-		const lastFiveValues = values.slice(values.length - 5);
-		const lastFiveTrendValues = trendValues.slice(values.length - 5);
+		const lastFiveTrendValues = trendValues.slice(trendValues.length - 5);
 
-		assert.deepEqual(lastFiveValues, [3.31, 2.74, 2.02, 1.08, 2.25]);
 		assert.deepEqual(lastFiveTrendValues, [1, -1, -1, -1, 1]);
+	});
+
+	it('should generate correct delta divergence values', () => {
+		const deltaDivergenceValues = processedCandles.map(
+			(candle) => candle.indicators.get('vwrrs_dd') ?? null
+		);
+
+		const lastFiveDeltaDivergenceValues = deltaDivergenceValues.slice(
+			deltaDivergenceValues.length - 5
+		);
+
+		assert.deepEqual(lastFiveDeltaDivergenceValues, [-0.62, -0.27, 0, 0.17, 0.36]);
 	});
 });
