@@ -1,4 +1,4 @@
-import calculateLRSI from 'src/analysis/indicators/LRSI';
+import LRSI from 'src/analysis/indicators/LRSI';
 import { Candle } from 'src/entities/Candle.model';
 import {
 	ECandleAnalyzerAlertSentiment,
@@ -6,7 +6,6 @@ import {
 	ICandleAnalyzerChartType,
 	ICandleAnalyzerIndicatorType
 } from 'src/interfaces/ICandleAnalyzer';
-import { arrayFillToMinLength } from 'src/util/arrays';
 import { isCandleIndicatorNumericValue } from 'src/util/candle';
 import { twoDecimals } from 'src/util/math';
 import BaseAnalyzer from '../BaseAnalyzer';
@@ -149,43 +148,27 @@ export class LRSIAnalyzer extends BaseAnalyzer {
 	}
 
 	analyze(candles: Candle[]): Candle[] {
-		const lrsiFastValues = arrayFillToMinLength(
-			calculateLRSI(
-				candles.map((candle) => candle.close),
-				{
-					gamma: this.fastPeriodGamma
-				}
-			),
-			candles.length
+		const lrsiFast = new LRSI(this.fastPeriodGamma);
+		lrsiFast.applyFormatter((value) =>
+			isCandleIndicatorNumericValue(value) ? twoDecimals(value) : value
 		);
 
-		const lrsiSlowValues = arrayFillToMinLength(
-			calculateLRSI(
-				candles.map((candle) => candle.close),
-				{
-					gamma: this.slowPeriodGamma
-				}
-			),
-			candles.length
+		const lrsiSlow = new LRSI(this.slowPeriodGamma);
+		lrsiSlow.applyFormatter((value) =>
+			isCandleIndicatorNumericValue(value) ? twoDecimals(value) : value
 		);
 
 		return candles.map((candle, index) => {
-			candle.indicators.set(
-				LRSIAnalyzer.INDICATOR_KEY_FAST,
-				lrsiFastValues[index] !== null ? twoDecimals(lrsiFastValues[index]) : null
-			);
+			const curFast = lrsiFast.push(candle.close);
+			const curSlow = lrsiSlow.push(candle.close);
 
-			candle.indicators.set(
-				LRSIAnalyzer.INDICATOR_KEY_SLOW,
-				lrsiSlowValues[index] !== null ? twoDecimals(lrsiSlowValues[index]) : null
-			);
+			candle.indicators.set(LRSIAnalyzer.INDICATOR_KEY_FAST, curFast);
+			candle.indicators.set(LRSIAnalyzer.INDICATOR_KEY_SLOW, curSlow);
 
 			if (index < 1) {
 				return candle;
 			}
 
-			const curFast = candle.indicators.get(LRSIAnalyzer.INDICATOR_KEY_FAST);
-			const curSlow = candle.indicators.get(LRSIAnalyzer.INDICATOR_KEY_SLOW);
 			const prevFast = candles[index - 1].indicators.get(LRSIAnalyzer.INDICATOR_KEY_FAST);
 			const prevSlow = candles[index - 1].indicators.get(LRSIAnalyzer.INDICATOR_KEY_SLOW);
 

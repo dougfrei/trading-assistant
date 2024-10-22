@@ -6,6 +6,8 @@ import { parseStooqCSVcontent } from 'src/util/stooq';
 import { VWRRSAnalyzer } from './VWRRSAnalyzer';
 
 describe('Analyzer - VWRRS', () => {
+	const candlesLength = 50;
+
 	let srcCandles: Candle[] = [];
 	let refCandles: Candle[] = [];
 	let processedCandles: Candle[] = [];
@@ -16,7 +18,7 @@ describe('Analyzer - VWRRS', () => {
 		);
 
 		const srcParseRes = parseStooqCSVcontent(srcFileBuf.toString().trim(), {
-			limitCount: 50
+			limitCount: candlesLength
 		});
 
 		srcCandles = srcParseRes?.tickers['AAPL']?.candles ?? [];
@@ -26,7 +28,7 @@ describe('Analyzer - VWRRS', () => {
 		);
 
 		const refParseRes = parseStooqCSVcontent(refFileBuf.toString().trim(), {
-			limitCount: 50
+			limitCount: candlesLength
 		});
 
 		refCandles = refParseRes?.tickers['SPY']?.candles ?? [];
@@ -43,7 +45,7 @@ describe('Analyzer - VWRRS', () => {
 
 	it('should have the correct array length', () => {
 		assert.equal(srcCandles.length, processedCandles.length);
-		assert.equal(processedCandles.length, 50);
+		assert.equal(processedCandles.length, candlesLength);
 	});
 
 	it('should generate correct values', () => {

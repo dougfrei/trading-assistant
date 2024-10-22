@@ -5,11 +5,10 @@ import {
 	ICandleAnalyzerChartSeriesGroup,
 	ICandleAnalyzerIndicatorType
 } from 'src/interfaces/ICandleAnalyzer';
-import { arrayFillToMinLength } from 'src/util/arrays';
 import { isCandleIndicatorNumericValue } from 'src/util/candle';
 import { twoDecimals } from 'src/util/math';
-import { SMA } from 'technicalindicators';
 import BaseAnalyzer from '../BaseAnalyzer';
+import SMA from '../indicators/SMA';
 
 interface ISMACrossAnalyzerParams {
 	colorMap?: Record<number, string>;
@@ -93,12 +92,9 @@ export class SMACrossAnalyzer extends BaseAnalyzer {
 
 	analyze(candles: Candle[]): Candle[] {
 		this.periods.forEach((period) => {
-			const values = arrayFillToMinLength(
-				SMA.calculate({
-					values: candles.map((candle) => candle.close),
-					period
-				}),
-				candles.length
+			const sma = new SMA(period);
+			sma.applyFormatter((value) =>
+				isCandleIndicatorNumericValue(value) ? twoDecimals(value) : value
 			);
 
 			const indicatorKey = this.getPeriodIndicatorKey(period);
@@ -106,19 +102,16 @@ export class SMACrossAnalyzer extends BaseAnalyzer {
 			const signalKeyCrossDown = this.getCrossDownKey(period);
 
 			candles.forEach((candle, index, candles) => {
-				candle.indicators.set(
-					indicatorKey,
-					isCandleIndicatorNumericValue(values[index]) ? twoDecimals(values[index]) : null
-				);
+				const curSMA = sma.push(candle.close);
+
+				candle.indicators.set(indicatorKey, curSMA);
 
 				if (index < 1) {
 					return;
 				}
 
-				const curSMA = candle.indicators.get(indicatorKey);
-				const prevSMA = candle.indicators.get(indicatorKey);
-
 				const prevCandle = candles[index - 1];
+				const prevSMA = prevCandle.indicators.get(indicatorKey);
 
 				if (
 					!isCandleIndicatorNumericValue(curSMA) ||

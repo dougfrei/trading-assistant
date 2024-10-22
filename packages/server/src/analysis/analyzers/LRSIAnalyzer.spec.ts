@@ -10,7 +10,9 @@ describe('Analyzer - LRSI', () => {
 	let processedCandles: Candle[] = [];
 
 	before(() => {
-		const fileBuf = readFileSync(`${process.cwd()}/test/mock-data/stooq/daily/aapl.us.txt`);
+		const fileBuf = readFileSync(
+			`${process.cwd()}/test/mock-data/stooq/daily/aapl.20240607.txt`
+		);
 
 		const parseRes = parseStooqCSVcontent(fileBuf.toString().trim(), {
 			limitCount: 50
@@ -41,14 +43,19 @@ describe('Analyzer - LRSI', () => {
 			slowTrend: candle.indicators.get(LRSIAnalyzer.INDICATOR_KEY_SLOW_TREND)
 		}));
 
-		const lastFiveValues = values.slice(values.length - 5);
+		const valuesSubset = values.slice(values.length - 10);
 
-		assert.deepEqual(lastFiveValues, [
-			{ fast: 1, slow: 0.46, fastTrend: 0, slowTrend: 1 },
-			{ fast: 1, slow: 0.56, fastTrend: 0, slowTrend: 1 },
-			{ fast: 0.79, slow: 0.59, fastTrend: -1, slowTrend: 1 },
-			{ fast: 0.94, slow: 0.78, fastTrend: 1, slowTrend: 1 },
-			{ fast: 0.89, slow: 1, fastTrend: -1, slowTrend: 1 }
+		assert.deepEqual(valuesSubset, [
+			{ fast: 0.66, slow: 1, fastTrend: 1, slowTrend: 0 },
+			{ fast: 0.31, slow: 1, fastTrend: -1, slowTrend: 0 },
+			{ fast: 0.29, slow: 1, fastTrend: -1, slowTrend: 0 },
+			{ fast: 0.6, slow: 1, fastTrend: 1, slowTrend: 0 },
+			{ fast: 0.8, slow: 1, fastTrend: 1, slowTrend: 0 },
+			{ fast: 0.99, slow: 1, fastTrend: 1, slowTrend: 0 },
+			{ fast: 1, slow: 1, fastTrend: 1, slowTrend: 0 },
+			{ fast: 1, slow: 1, fastTrend: 0, slowTrend: 0 },
+			{ fast: 1, slow: 1, fastTrend: 0, slowTrend: 0 },
+			{ fast: 1, slow: 1, fastTrend: 0, slowTrend: 0 }
 		]);
 	});
 });

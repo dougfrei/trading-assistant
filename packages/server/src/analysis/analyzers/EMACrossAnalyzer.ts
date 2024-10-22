@@ -4,11 +4,10 @@ import {
 	ICandleAnalyzerAlertType,
 	ICandleAnalyzerIndicatorType
 } from 'src/interfaces/ICandleAnalyzer';
-import { arrayFillToMinLength } from 'src/util/arrays';
 import { isCandleIndicatorNumericValue } from 'src/util/candle';
 import { twoDecimals } from 'src/util/math';
-import { EMA } from 'technicalindicators';
 import BaseAnalyzer from '../BaseAnalyzer';
+import EMA from '../indicators/EMA';
 
 export class EMACrossAnalyzer extends BaseAnalyzer {
 	static readonly ALERT_VALUE_ZONE = 'ema_value_zone';
@@ -75,43 +74,27 @@ export class EMACrossAnalyzer extends BaseAnalyzer {
 		const signalIndicatorNameCrossUp = this.getCrossUpKey();
 		const signalIndicatorNameCrossDown = this.getCrossDownKey();
 
-		const shortValues = arrayFillToMinLength(
-			EMA.calculate({
-				values: candles.map((candle) => candle.close),
-				period: this.shortPeriod
-			}),
-			candles.length
+		const emaShort = new EMA(this.shortPeriod);
+		emaShort.applyFormatter((value) =>
+			isCandleIndicatorNumericValue(value) ? twoDecimals(value) : value
 		);
 
-		const longValues = arrayFillToMinLength(
-			EMA.calculate({
-				values: candles.map((candle) => candle.close),
-				period: this.longPeriod
-			}),
-			candles.length
+		const emaLong = new EMA(this.longPeriod);
+		emaLong.applyFormatter((value) =>
+			isCandleIndicatorNumericValue(value) ? twoDecimals(value) : value
 		);
 
 		candles.forEach((candle, index, candles) => {
-			candle.indicators.set(
-				shortIndicatorKey,
-				typeof shortValues[index] !== 'undefined' && shortValues[index] !== null
-					? twoDecimals(shortValues[index])
-					: null
-			);
+			const curShort = emaShort.push(candle.close);
+			const curLong = emaLong.push(candle.close);
 
-			candle.indicators.set(
-				longIndicatorKey,
-				typeof longValues[index] !== 'undefined' && longValues[index] !== null
-					? twoDecimals(longValues[index])
-					: null
-			);
+			candle.indicators.set(shortIndicatorKey, curShort);
+			candle.indicators.set(longIndicatorKey, curLong);
 
 			if (index < 1) {
 				return;
 			}
 
-			const curShort = candle.indicators.get(shortIndicatorKey);
-			const curLong = candle.indicators.get(longIndicatorKey);
 			const prevShort = candles[index - 1].indicators.get(shortIndicatorKey);
 			const prevLong = candles[index - 1].indicators.get(longIndicatorKey);
 

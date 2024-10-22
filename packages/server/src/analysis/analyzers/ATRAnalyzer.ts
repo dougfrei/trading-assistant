@@ -1,9 +1,9 @@
 import { Candle } from 'src/entities/Candle.model';
 import { ICandleAnalyzerIndicatorType } from 'src/interfaces/ICandleAnalyzer';
-import { arrayFillToMinLength } from 'src/util/arrays';
+import { isCandleIndicatorNumericValue } from 'src/util/candle';
 import { twoDecimals } from 'src/util/math';
-import { ATR } from 'technicalindicators';
 import BaseAnalyzer from '../BaseAnalyzer';
+import ATR from '../indicators/ATR';
 
 interface IATRAnalyzerParams {
 	period?: number;
@@ -34,21 +34,15 @@ export class ATRAnalyzer extends BaseAnalyzer {
 	}
 
 	analyze(candles: Candle[]): Candle[] {
-		const atrValues = arrayFillToMinLength(
-			ATR.calculate({
-				period: this.period,
-				high: candles.map((candle) => candle.high),
-				low: candles.map((candle) => candle.low),
-				close: candles.map((candle) => candle.close)
-			}),
-			candles.length
+		const atr = new ATR(this.period);
+		atr.applyFormatter((value) =>
+			isCandleIndicatorNumericValue(value) ? twoDecimals(value) : value
 		);
 
-		return candles.map((candle, index) => {
-			candle.indicators.set(
-				ATRAnalyzer.ATR_INDICATOR_KEY,
-				typeof atrValues[index] === 'number' ? twoDecimals(atrValues[index]) : null
-			);
+		return candles.map((candle) => {
+			const atrValue = atr.push({ high: candle.high, low: candle.low, close: candle.close });
+
+			candle.indicators.set(ATRAnalyzer.ATR_INDICATOR_KEY, atrValue);
 
 			return candle;
 		});

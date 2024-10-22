@@ -4,11 +4,10 @@ import { before, describe, it } from 'node:test';
 import { Candle } from 'src/entities/Candle.model';
 import { arrayFillToMinLength } from 'src/util/arrays';
 import { parseStooqCSVcontent } from 'src/util/stooq';
-import { SMA as SMA_TI } from 'technicalindicators';
-import SimpleMovingAverage from './SimpleMovingAverage';
+import { EMA as EMA_TI } from 'technicalindicators';
+import EMA from './EMA';
 
-describe('Indicator - SMA', () => {
-	const useCandleCount = 10;
+describe('Indicator - EMA', () => {
 	const period = 5;
 	let candles: Candle[] = [];
 
@@ -18,26 +17,24 @@ describe('Indicator - SMA', () => {
 		);
 
 		const parsedFile = parseStooqCSVcontent(fileBuf.toString().trim(), {
-			limitCount: 50
+			limitCount: 10
 		});
 
 		candles = parsedFile?.tickers['AAPL']?.candles ?? [];
 	});
 
 	it('should match reference values from technicalindicators package', () => {
-		const testCandleRange = candles.slice(candles.length - useCandleCount);
-
 		const referenceValues = arrayFillToMinLength(
-			SMA_TI.calculate({
+			EMA_TI.calculate({
 				period,
-				values: testCandleRange.map((candle) => candle.close)
+				values: candles.map((candle) => candle.close)
 			}),
-			useCandleCount
+			candles.length
 		);
 
-		const sma = new SimpleMovingAverage(period);
-		const smaValues = testCandleRange.map((candle) => sma.push(candle.close));
+		const ema = new EMA(period);
+		const emaValues = candles.map((candle) => ema.push(candle.close));
 
-		assert.deepEqual(referenceValues, smaValues);
+		assert.deepEqual(referenceValues, emaValues);
 	});
 });

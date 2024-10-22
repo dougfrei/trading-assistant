@@ -84,7 +84,7 @@ export function getAnalyzerSetAlertTypes(analyzerSet: BaseAnalyzer[]) {
  *
  * @param candles An array of Candle objects to analyze
  * @param analyzerSet An array of analyzers to use
- * @returns The input array of candle objects with the 'indicators' and 'alerts' properties populated
+ * @returns A tuple with the first element being an errors string array and the second being the input array of candle objects with the 'indicators' and 'alerts' properties populated
  */
 export function analyzeCandles(
 	candles: Candle[],

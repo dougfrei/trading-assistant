@@ -3,7 +3,7 @@ import { ECandlePeriodType } from '@trading-assistant/common';
 import { sql } from 'kysely';
 import BaseAnalyzer from 'src/analysis/BaseAnalyzer';
 import { RVolAnalyzer } from 'src/analysis/analyzers/RVolAnalyzer';
-import calculateVwapOhlc4 from 'src/analysis/indicators/vwapOHLC4';
+import VWAP from 'src/analysis/indicators/VWAP';
 import { AppConfigService } from 'src/app-config/appConfig.service';
 import { Database } from 'src/db/db.module';
 import { Candle } from 'src/entities/Candle.model';
@@ -12,6 +12,7 @@ import { DbCandleService, IGetCandlesArgs } from 'src/services/db/dbCandle.servi
 import { DbTickerSymbolService } from 'src/services/db/dbTickerSymbol.service';
 import TCandleAnalysisEmitter from 'src/types/emitters/candle-analysis-emitter';
 import { analyzeCandles } from 'src/util/analyze';
+import { isCandleIndicatorNumericValue } from 'src/util/candle';
 import { DEFAULT_MARKET_TICKER_SYMBOL } from 'src/util/constants';
 import { getErrorObject } from 'src/util/errors';
 import { getSectorETFTickerSymbolNameByGCIS } from 'src/util/etfs';
@@ -383,20 +384,24 @@ export class CandleAnalysisService {
 					return acum;
 				}
 
+				const vwap = new VWAP();
+
 				const vwapCandles = srcArray.slice(startIndex);
-				const vwapValues = calculateVwapOhlc4({
-					open: vwapCandles.map((vwapCandle) => vwapCandle.open),
-					high: vwapCandles.map((vwapCandle) => vwapCandle.high),
-					low: vwapCandles.map((vwapCandle) => vwapCandle.low),
-					close: vwapCandles.map((vwapCandle) => vwapCandle.close),
-					volume: vwapCandles.map((vwapCandle) => vwapCandle.volume)
-				});
+				const vwapValues = vwapCandles.map((vwapCandle) =>
+					vwap.push({
+						open: vwapCandle.open,
+						high: vwapCandle.high,
+						low: vwapCandle.low,
+						close: vwapCandle.close,
+						volume: vwapCandle.volume
+					})
+				);
 
 				const overUnderCounts = vwapValues.reduce(
 					(acum, vwapValue, index) => {
 						const candle = vwapCandles[index] ?? null;
 
-						if (!candle) {
+						if (!candle || !isCandleIndicatorNumericValue(vwapValue)) {
 							return acum;
 						}
 
@@ -426,7 +431,7 @@ export class CandleAnalysisService {
 					anchorPeriod: candle.period,
 					vwapValues: vwapValues.map((vwapValue, index) => ({
 						period: vwapCandles[index].period,
-						value: twoDecimals(vwapValue)
+						value: isCandleIndicatorNumericValue(vwapValue) ? twoDecimals(vwapValue) : 0
 					})),
 					// overUnderCounts,
 					overUnderRatio: twoDecimals(overUnderRatio)

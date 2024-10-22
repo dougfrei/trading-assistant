@@ -1,8 +1,10 @@
 import { Args, Query, Resolver } from '@nestjs/graphql';
 import { GraphQLError } from 'graphql';
-import calculateVwapOhlc4 from 'src/analysis/indicators/vwapOHLC4';
+import VWAP from 'src/analysis/indicators/VWAP';
 import { DbCandleService, IGetCandlesArgs } from 'src/services/db/dbCandle.service';
+import { isCandleIndicatorNumericValue } from 'src/util/candle';
 import { getNYMarketOpenDateObject } from 'src/util/date';
+import { twoDecimals } from 'src/util/math';
 import { AVWAPArgs } from './AVWAP.args';
 import { AVWAPValue } from './AVWAPValue.model';
 
@@ -34,21 +36,25 @@ export class AVWAPResolver {
 				);
 			}
 
-			const values = calculateVwapOhlc4({
-				open: candles.map((candle) => candle.open),
-				low: candles.map((candle) => candle.low),
-				high: candles.map((candle) => candle.high),
-				close: candles.map((candle) => candle.close),
-				volume: candles.map((candle) => candle.volume),
-				twoDecimals: true
-			});
+			const vwap = new VWAP();
+			vwap.applyFormatter((value) =>
+				isCandleIndicatorNumericValue(value) ? twoDecimals(value) : value
+			);
 
-			return values.map((value, index) => {
+			return candles.map((candle) => {
+				const vwapValue = vwap.push({
+					open: candle.open,
+					high: candle.high,
+					low: candle.low,
+					close: candle.close,
+					volume: candle.volume
+				});
+
 				const avwapValue = new AVWAPValue();
 
-				avwapValue.period = candles[index]?.period.getTime() ?? 0;
+				avwapValue.period = candle.period.getTime() ?? 0;
 				avwapValue.periodType = args.periodType;
-				avwapValue.value = value;
+				avwapValue.value = isCandleIndicatorNumericValue(vwapValue) ? vwapValue : 0;
 
 				return avwapValue;
 			});

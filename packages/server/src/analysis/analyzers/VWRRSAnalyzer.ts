@@ -6,12 +6,10 @@ import {
 	ICandleAnalyzerChartType,
 	ICandleAnalyzerIndicatorType
 } from 'src/interfaces/ICandleAnalyzer';
-import { arrayFillToMinLength } from 'src/util/arrays';
 import { isCandleIndicatorNumericValue } from 'src/util/candle';
 import { twoDecimals } from 'src/util/math';
-import { SMA } from 'technicalindicators';
 import BaseAnalyzer from '../BaseAnalyzer';
-import SimpleMovingAverage from '../indicators/SimpleMovingAverage';
+import SMA from '../indicators/SMA';
 
 interface IVWRRSAnalyzerParams {
 	refCandles: Candle[];
@@ -285,55 +283,19 @@ export class VWRRSAnalyzer extends BaseAnalyzer {
 			);
 		}
 
-		const srcValues = {
-			closeSMA: arrayFillToMinLength(
-				SMA.calculate({
-					values: candles.map((candle) => candle.close),
-					period: this.rollingPeriod
-				}),
-				candles.length
-			),
-			volShortSMA: arrayFillToMinLength(
-				SMA.calculate({
-					values: candles.map((candle) => candle.volume),
-					period: this.rollingPeriodVolShort
-				}),
-				candles.length
-			),
-			volLongSMA: arrayFillToMinLength(
-				SMA.calculate({
-					values: candles.map((candle) => candle.volume),
-					period: this.rollingPeriodVolLong
-				}),
-				candles.length
-			)
+		const srcSMA = {
+			close: new SMA(this.rollingPeriod),
+			volumeShort: new SMA(this.rollingPeriodVolShort),
+			volumeLong: new SMA(this.rollingPeriodVolLong)
 		};
 
-		const refValues = {
-			closeSMA: arrayFillToMinLength(
-				SMA.calculate({
-					values: refCandles.map((candle) => candle.close),
-					period: this.rollingPeriod
-				}),
-				refCandles.length
-			),
-			volShortSMA: arrayFillToMinLength(
-				SMA.calculate({
-					values: refCandles.map((candle) => candle.volume),
-					period: this.rollingPeriodVolShort
-				}),
-				refCandles.length
-			),
-			volLongSMA: arrayFillToMinLength(
-				SMA.calculate({
-					values: refCandles.map((candle) => candle.volume),
-					period: this.rollingPeriodVolLong
-				}),
-				refCandles.length
-			)
+		const refSMA = {
+			close: new SMA(this.rollingPeriod),
+			volumeShort: new SMA(this.rollingPeriodVolShort),
+			volumeLong: new SMA(this.rollingPeriodVolLong)
 		};
 
-		const deltaSMA = new SimpleMovingAverage(this.rollingPeriodDeltaDivergence);
+		const deltaSMA = new SMA(this.rollingPeriodDeltaDivergence);
 
 		// add indicator
 		candles.forEach((curCandle, index, allCandles) => {
@@ -344,31 +306,25 @@ export class VWRRSAnalyzer extends BaseAnalyzer {
 			const prevRefCandle = refCandles[index - 1];
 
 			// set values for source candles
-			curCandle.indicators.set(
-				'_vwrrs_close_sma',
-				srcValues.closeSMA[index] !== null ? srcValues.closeSMA[index] : null
-			);
+			curCandle.indicators.set('_vwrrs_close_sma', srcSMA.close.push(curCandle.close));
 			curCandle.indicators.set(
 				'_vwrrs_vol_short_sma',
-				srcValues.volShortSMA[index] !== null ? srcValues.volShortSMA[index] : null
+				srcSMA.volumeShort.push(curCandle.volume)
 			);
 			curCandle.indicators.set(
 				'_vwrrs_vol_long_sma',
-				srcValues.volLongSMA[index] !== null ? srcValues.volLongSMA[index] : null
+				srcSMA.volumeLong.push(curCandle.volume)
 			);
 
 			// set values for ref candles
-			curRefCandle.indicators.set(
-				'_vwrrs_close_sma',
-				refValues.closeSMA[index] !== null ? refValues.closeSMA[index] : null
-			);
+			curRefCandle.indicators.set('_vwrrs_close_sma', refSMA.close.push(curRefCandle.close));
 			curRefCandle.indicators.set(
 				'_vwrrs_vol_short_sma',
-				refValues.volShortSMA[index] !== null ? refValues.volShortSMA[index] : null
+				refSMA.volumeShort.push(curRefCandle.volume)
 			);
 			curRefCandle.indicators.set(
 				'_vwrrs_vol_long_sma',
-				refValues.volLongSMA[index] !== null ? refValues.volLongSMA[index] : null
+				refSMA.volumeLong.push(curRefCandle.volume)
 			);
 
 			// calculate RS/RW values
