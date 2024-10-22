@@ -50,11 +50,13 @@ const AppRoute = AppImport.update({
 } as any)
 
 const AppIndexRoute = AppIndexImport.update({
+  id: '/',
   path: '/',
   getParentRoute: () => AppRoute,
 } as any).lazy(() => import('./routes/_app/index.lazy').then((d) => d.Route))
 
 const AuthLoginRoute = AuthLoginImport.update({
+  id: '/login',
   path: '/login',
   getParentRoute: () => AuthRoute,
 } as any)
@@ -65,6 +67,7 @@ const AppAdminRoute = AppAdminImport.update({
 } as any)
 
 const AppAccountIndexLazyRoute = AppAccountIndexLazyImport.update({
+  id: '/account/',
   path: '/account/',
   getParentRoute: () => AppRoute,
 } as any).lazy(() =>
@@ -72,11 +75,13 @@ const AppAccountIndexLazyRoute = AppAccountIndexLazyImport.update({
 )
 
 const AuthResetPasswordIndexRoute = AuthResetPasswordIndexImport.update({
+  id: '/reset-password/',
   path: '/reset-password/',
   getParentRoute: () => AuthRoute,
 } as any)
 
 const AppSectorsIndexRoute = AppSectorsIndexImport.update({
+  id: '/sectors/',
   path: '/sectors/',
   getParentRoute: () => AppRoute,
 } as any).lazy(() =>
@@ -84,6 +89,7 @@ const AppSectorsIndexRoute = AppSectorsIndexImport.update({
 )
 
 const AppScreenerIndexRoute = AppScreenerIndexImport.update({
+  id: '/screener/',
   path: '/screener/',
   getParentRoute: () => AppRoute,
 } as any).lazy(() =>
@@ -91,6 +97,7 @@ const AppScreenerIndexRoute = AppScreenerIndexImport.update({
 )
 
 const AppJournalIndexRoute = AppJournalIndexImport.update({
+  id: '/journal/',
   path: '/journal/',
   getParentRoute: () => AppRoute,
 } as any).lazy(() =>
@@ -98,6 +105,7 @@ const AppJournalIndexRoute = AppJournalIndexImport.update({
 )
 
 const AppChartsSymbolLazyRoute = AppChartsSymbolLazyImport.update({
+  id: '/charts/$symbol',
   path: '/charts/$symbol',
   getParentRoute: () => AppRoute,
 } as any).lazy(() =>
@@ -105,17 +113,20 @@ const AppChartsSymbolLazyRoute = AppChartsSymbolLazyImport.update({
 )
 
 const AuthResetPasswordResetIdRoute = AuthResetPasswordResetIdImport.update({
+  id: '/reset-password/$resetId',
   path: '/reset-password/$resetId',
   getParentRoute: () => AuthRoute,
 } as any)
 
 const AuthActivateAccountActivateIdRoute =
   AuthActivateAccountActivateIdImport.update({
+    id: '/activate-account/$activateId',
     path: '/activate-account/$activateId',
     getParentRoute: () => AuthRoute,
   } as any)
 
 const AppJournalTagsRoute = AppJournalTagsImport.update({
+  id: '/journal/tags',
   path: '/journal/tags',
   getParentRoute: () => AppRoute,
 } as any).lazy(() =>
@@ -123,6 +134,7 @@ const AppJournalTagsRoute = AppJournalTagsImport.update({
 )
 
 const AppJournalCalendarRoute = AppJournalCalendarImport.update({
+  id: '/journal/calendar',
   path: '/journal/calendar',
   getParentRoute: () => AppRoute,
 } as any).lazy(() =>
@@ -130,6 +142,7 @@ const AppJournalCalendarRoute = AppJournalCalendarImport.update({
 )
 
 const AppJournalAddRoute = AppJournalAddImport.update({
+  id: '/journal/add',
   path: '/journal/add',
   getParentRoute: () => AppRoute,
 } as any).lazy(() =>
@@ -137,6 +150,7 @@ const AppJournalAddRoute = AppJournalAddImport.update({
 )
 
 const AppJournalAccountsRoute = AppJournalAccountsImport.update({
+  id: '/journal/accounts',
   path: '/journal/accounts',
   getParentRoute: () => AppRoute,
 } as any).lazy(() =>
@@ -144,6 +158,7 @@ const AppJournalAccountsRoute = AppJournalAccountsImport.update({
 )
 
 const AppAdminAdminUsersLazyRoute = AppAdminAdminUsersLazyImport.update({
+  id: '/admin/users',
   path: '/admin/users',
   getParentRoute: () => AppAdminRoute,
 } as any).lazy(() =>
