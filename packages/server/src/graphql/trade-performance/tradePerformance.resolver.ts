@@ -12,6 +12,7 @@ import {
 	endOfMonth,
 	endOfWeek,
 	endOfYear,
+	getDaysInMonth,
 	startOfDay,
 	startOfMonth,
 	startOfWeek,
@@ -34,7 +35,13 @@ export class TradePerformanceResolver {
 	async getTradePerformance(
 		@Args() args: GetTradePerformancePeriodsArgs
 	): Promise<TradePerformance> {
-		const { startDate, numPeriods, periodType, accountId, instrumentType } = args;
+		const {
+			startDate = startOfMonth(new Date()),
+			numPeriods = getDaysInMonth(new Date()),
+			periodType,
+			accountId,
+			instrumentType
+		} = args;
 
 		let whereStartDate = startDate;
 		let whereEndDate = startDate;

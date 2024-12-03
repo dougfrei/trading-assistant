@@ -229,7 +229,7 @@ type Query {
   tradeAccounts: [TradeAccount!]!
   tradeInstruments: [TradeInstrument!]!
   tradeOptionSpreadTemplateGroups: [TradeOptionSpreadTemplateGroup!]!
-  tradePerformance(accountId: Int! = 0, instrumentType: ETradeInstrumentType, numPeriods: Int! = 31, periodType: ETradePeriodType! = DAY, startDate: DateTime! = "2024-10-01T07:00:00.000Z"): TradePerformance!
+  tradePerformance(accountId: Int! = 0, instrumentType: ETradeInstrumentType, numPeriods: Int, periodType: ETradePeriodType! = DAY, startDate: DateTime): TradePerformance!
   tradeTags(type: ETradeTagType): [TradeTag!]!
   userRoleTypes: [UserRoleType!]!
   users(page: Int! = 1, perPage: Int! = 25, search: String! = ""): GetUsersResponse!
