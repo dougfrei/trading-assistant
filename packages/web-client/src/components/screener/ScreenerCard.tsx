@@ -1,10 +1,10 @@
 import {
-	Alert,
 	Badge,
 	Card,
 	DefaultMantineColor,
 	Grid,
 	Group,
+	Notification,
 	SimpleGrid,
 	Title,
 	UnstyledButton
@@ -28,6 +28,8 @@ const ScreenerCard: React.FC<{
 	const rsrwMarketExists = typeof currentCandle?.indicators['vwrrs_market'] === 'number';
 	const rsrwMarket = currentCandle?.indicators['vwrrs_market'] ?? 0;
 	const rsrwMarketTrend = currentCandle?.indicators['vwrrs_market_trend'] ?? 0;
+	const rsrwMarketDDExists = typeof currentCandle?.indicators['vwrrs_market_dd'] === 'number';
+	const rsrwMarketDD = currentCandle?.indicators['vwrrs_market_dd'] ?? 0;
 	const expectedMove =
 		typeof currentCandle?.indicators['atr'] !== 'undefined'
 			? (currentCandle.indicators['atr'] / currentCandle.close) * 100
@@ -44,7 +46,7 @@ const ScreenerCard: React.FC<{
 		>
 			<Card shadow="sm" p="lg" radius="md" withBorder key={tickerSymbolRecord?.name}>
 				<Grid>
-					<Grid.Col span={{ base: 12, md: 8 }}>
+					<Grid.Col span={{ base: 12, md: 'auto' }}>
 						<Group gap="xs">
 							<Badge color="gray" size="xl" radius="xs" variant="outline">
 								{tickerSymbolRecord?.name}
@@ -60,9 +62,8 @@ const ScreenerCard: React.FC<{
 						{smaValues.length > 0 && (
 							<Group mt="md" gap="xs">
 								{smaValues.map((smaValue) => {
-									const value = currentCandle?.indicators[`sma_${smaValue}`]
-										? currentCandle?.indicators[`sma_${smaValue}`]
-										: null;
+									const value =
+										currentCandle?.indicators[`sma_${smaValue}`] ?? null;
 
 									if (value === null) {
 										return null;
@@ -112,16 +113,17 @@ const ScreenerCard: React.FC<{
 							})}
 						</Group>
 					</Grid.Col>
-					<Grid.Col span={{ base: 12, md: 4 }}>
+					<Grid.Col span={{ base: 12, md: 'content' }}>
 						<SimpleGrid cols={2}>
-							<Alert
+							<Notification
 								title="Market RS/RW"
-								variant="light"
+								withCloseButton={false}
+								withBorder
 								color={
 									rsrwMarketExists ? (rsrwMarket > 0 ? 'green' : 'red') : 'gray'
 								}
 							>
-								<Group align="center" justify="center" gap="xs">
+								<Group align="center" justify="flex-start" gap="xs">
 									{rsrwMarketExists ? (
 										<>
 											<strong>{rsrwMarket}</strong>
@@ -135,16 +137,45 @@ const ScreenerCard: React.FC<{
 										<span>N/A</span>
 									)}
 								</Group>
-							</Alert>
-							<Alert title="Expected move" variant="light" color="gray">
+							</Notification>
+							<Notification
+								title="Market RS/RW DD"
+								withCloseButton={false}
+								withBorder
+								color={
+									rsrwMarketDDExists
+										? rsrwMarketDD > 0
+											? 'green'
+											: 'red'
+										: 'gray'
+								}
+							>
+								{rsrwMarketDDExists ? rsrwMarketDD : 'N/A'}
+							</Notification>
+							<Notification
+								title="Expected Move"
+								withCloseButton={false}
+								withBorder
+								color="gray"
+							>
 								+/- {parseFloat((expectedMove / 2).toFixed(2))}%
-							</Alert>
-							<Alert title="Avg. Daily Vol." variant="light" color="gray">
+							</Notification>
+							<Notification
+								title="Avg. Daily Vol."
+								withCloseButton={false}
+								withBorder
+								color="gray"
+							>
 								{avgDailyVolFormatted}
-							</Alert>
-							<Alert title="Relative Vol." variant="light" color="gray">
+							</Notification>
+							<Notification
+								title="Relative Vol."
+								withCloseButton={false}
+								withBorder
+								color="gray"
+							>
 								{rVol}
-							</Alert>
+							</Notification>
 						</SimpleGrid>
 					</Grid.Col>
 				</Grid>
