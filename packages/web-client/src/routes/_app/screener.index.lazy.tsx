@@ -76,6 +76,44 @@ const ScreenerView: React.FC = () => {
 		);
 	}
 
+	const filterControls = (
+		<>
+			<Select
+				label="Query"
+				value={queryId.toString()}
+				onChange={(value) => {
+					setQueryId(parseInt(value ?? '0'));
+					setPage(1);
+				}}
+				data={queryOptions}
+				disabled={isLoading}
+				allowDeselect={false}
+			/>
+			<Select
+				label="Sector"
+				value={sectorGCIS}
+				onChange={(value) => {
+					setSectorGCIS(value ?? '');
+					setPage(1);
+				}}
+				data={sectorOptions}
+				disabled={isLoading}
+				allowDeselect={false}
+			/>
+			<Select
+				label="Sort"
+				value={sortMethod}
+				onChange={(value) => {
+					setSortMethod(value ?? '');
+					setPage(1);
+				}}
+				data={sortByOptions}
+				disabled={isLoading}
+				allowDeselect={false}
+			/>
+		</>
+	);
+
 	return (
 		<>
 			<OverlayChartModal
@@ -89,41 +127,7 @@ const ScreenerView: React.FC = () => {
 				position="right"
 				hiddenFrom="lg"
 			>
-				<Stack gap="md">
-					<Select
-						label="Query"
-						value={queryId.toString()}
-						onChange={(value) => {
-							setQueryId(parseInt(value ?? '0'));
-							setPage(1);
-						}}
-						data={queryOptions}
-						disabled={isLoading}
-						allowDeselect={false}
-					/>
-					<Select
-						label="Sector"
-						value={sectorGCIS}
-						onChange={(value) => {
-							setSectorGCIS(value ?? '');
-							setPage(1);
-						}}
-						data={sectorOptions}
-						disabled={isLoading}
-						allowDeselect={false}
-					/>
-					<Select
-						label="Sort"
-						value={sortMethod}
-						onChange={(value) => {
-							setSortMethod(value ?? '');
-							setPage(1);
-						}}
-						data={sortByOptions}
-						disabled={isLoading}
-						allowDeselect={false}
-					/>
-				</Stack>
+				<Stack gap="md">{filterControls}</Stack>
 			</Drawer>
 			<Stack gap="md">
 				<Group align="flex-end" justify="space-between">
@@ -134,38 +138,7 @@ const ScreenerView: React.FC = () => {
 					>
 						Filters
 					</Button>
-					<Group visibleFrom="lg">
-						<Select
-							label="Query"
-							value={queryId.toString()}
-							onChange={(value) => {
-								setQueryId(parseInt(value ?? '0'));
-								setPage(1);
-							}}
-							data={queryOptions}
-							disabled={isLoading}
-						/>
-						<Select
-							label="Sector"
-							value={sectorGCIS}
-							onChange={(value) => {
-								setSectorGCIS(value ?? '');
-								setPage(1);
-							}}
-							data={sectorOptions}
-							disabled={isLoading}
-						/>
-						<Select
-							label="Sort"
-							value={sortMethod}
-							onChange={(value) => {
-								setSortMethod(value ?? '');
-								setPage(1);
-							}}
-							data={sortByOptions}
-							disabled={isLoading}
-						/>
-					</Group>
+					<Group visibleFrom="lg">{filterControls}</Group>
 					<Pagination
 						withEdges
 						total={pagination.totalPages}
