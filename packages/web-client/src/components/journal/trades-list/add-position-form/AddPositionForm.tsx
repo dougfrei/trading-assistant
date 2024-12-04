@@ -14,7 +14,6 @@ import {
 	TTradePosition
 } from '@trading-assistant/common/interfaces';
 import { decodeOptionName, encodeOptionName } from '@trading-assistant/common/util';
-import { nanoid } from 'nanoid';
 import { useCallback, useEffect } from 'react';
 import {
 	AddPositionFormProvider,
@@ -47,7 +46,7 @@ const AddPositionForm: React.FC<{
 			switch (tradeRecord.instrumentType) {
 				case ETradeInstrumentType.STOCK:
 					newPositions.push({
-						id: nanoid(),
+						id: crypto.randomUUID(),
 						dateTime: values.newPosition.dateTime.toISOString(),
 						totalAmount:
 							values.newPosition.netEffect === 'credit'
@@ -63,7 +62,7 @@ const AddPositionForm: React.FC<{
 
 				case ETradeInstrumentType.OPTION:
 					newPositions.push({
-						id: nanoid(),
+						id: crypto.randomUUID(),
 						dateTime: values.newPosition.dateTime.toISOString(),
 						totalAmount:
 							values.newPosition.netEffect === 'credit'
