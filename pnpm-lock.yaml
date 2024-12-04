@@ -298,7 +298,7 @@ importers:
         version: 1.2.0
       '@mantine/charts':
         specifier: ^7.14.3
-        version: 7.14.3(@mantine/core@7.14.3(@mantine/hooks@7.14.3(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.14.3(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(recharts@2.12.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+        version: 7.14.3(@mantine/core@7.14.3(@mantine/hooks@7.14.3(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.14.3(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(recharts@2.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@mantine/core':
         specifier: ^7.14.3
         version: 7.14.3(@mantine/hooks@7.14.3(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -343,7 +343,7 @@ importers:
         version: 4.2.1
       mantine-form-valibot-resolver:
         specifier: ^3.0.1
-        version: 3.0.1(@mantine/form@7.14.3(react@18.3.1))(valibot@1.0.0-beta.0(typescript@5.7.2))
+        version: 3.0.1(@mantine/form@7.14.3(react@18.3.1))(valibot@1.0.0-beta.9(typescript@5.7.2))
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -354,8 +354,8 @@ importers:
         specifier: ^1.2.5
         version: 1.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       valibot:
-        specifier: 1.0.0-beta.0
-        version: 1.0.0-beta.0(typescript@5.7.2)
+        specifier: 1.0.0-beta.9
+        version: 1.0.0-beta.9(typescript@5.7.2)
     devDependencies:
       '@eslint/js':
         specifier: ^9.16.0
@@ -365,40 +365,40 @@ importers:
         version: 1.49.0
       '@storybook/addon-essentials':
         specifier: ^8.4.6
-        version: 8.4.6(@types/react@18.3.12)(storybook@8.4.6(prettier@3.4.1))
+        version: 8.4.6(@types/react@18.3.12)(storybook@8.4.6(prettier@3.4.2))
       '@storybook/addon-interactions':
         specifier: ^8.4.6
-        version: 8.4.6(storybook@8.4.6(prettier@3.4.1))
+        version: 8.4.6(storybook@8.4.6(prettier@3.4.2))
       '@storybook/addon-links':
         specifier: ^8.4.6
-        version: 8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))
+        version: 8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       '@storybook/addon-mdx-gfm':
         specifier: ^8.4.6
-        version: 8.4.6(storybook@8.4.6(prettier@3.4.1))
+        version: 8.4.6(storybook@8.4.6(prettier@3.4.2))
       '@storybook/addon-onboarding':
         specifier: ^8.4.6
-        version: 8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))
+        version: 8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       '@storybook/blocks':
         specifier: ^8.4.6
-        version: 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))
+        version: 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       '@storybook/client-api':
         specifier: ^7.6.17
         version: 7.6.17
       '@storybook/react':
         specifier: ^8.4.6
-        version: 8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))(typescript@5.7.2)
+        version: 8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))(typescript@5.7.2)
       '@storybook/react-vite':
         specifier: ^8.4.6
-        version: 8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.28.0)(storybook@8.4.6(prettier@3.4.1))(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))
+        version: 8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.28.0)(storybook@8.4.6(prettier@3.4.2))(typescript@5.7.2)(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))
       '@storybook/test':
         specifier: ^8.4.6
-        version: 8.4.6(storybook@8.4.6(prettier@3.4.1))
+        version: 8.4.6(storybook@8.4.6(prettier@3.4.2))
       '@tanstack/router-devtools':
         specifier: ^1.85.5
         version: 1.85.5(@tanstack/react-router@1.85.5(@tanstack/router-generator@1.85.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(csstype@3.1.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/router-plugin':
         specifier: ^1.85.3
-        version: 1.85.3(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))(webpack@5.94.0(esbuild@0.24.0))
+        version: 1.85.3(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))(webpack@5.94.0(esbuild@0.24.0))
       '@testing-library/dom':
         specifier: ^10.4.0
         version: 10.4.0
@@ -413,7 +413,7 @@ importers:
         version: 14.5.2(@testing-library/dom@10.4.0)
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^4.3.0
-        version: 4.3.0(prettier@3.4.1)
+        version: 4.3.0(prettier@3.4.2)
       '@types/eslint__js':
         specifier: ^8.42.3
         version: 8.42.3
@@ -428,10 +428,10 @@ importers:
         version: 18.3.1
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.3.4(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))
+        version: 4.3.4(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))
       '@vitejs/plugin-react-swc':
         specifier: ^3.7.2
-        version: 3.7.2(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))
+        version: 3.7.2(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))
       browserslist:
         specifier: ^4.24.2
         version: 4.24.2
@@ -463,17 +463,17 @@ importers:
         specifier: ^7.0.1
         version: 7.0.1(postcss@8.4.49)
       prettier:
-        specifier: ^3.4.1
-        version: 3.4.1
+        specifier: ^3.4.2
+        version: 3.4.2
       sass:
         specifier: ^1.82.0
         version: 1.82.0
       storybook:
         specifier: ^8.4.6
-        version: 8.4.6(prettier@3.4.1)
+        version: 8.4.6(prettier@3.4.2)
       storybook-dark-mode:
         specifier: ^4.0.2
-        version: 4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))
+        version: 4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -481,11 +481,11 @@ importers:
         specifier: ^8.17.0
         version: 8.17.0(eslint@9.16.0)(typescript@5.7.2)
       vite:
-        specifier: ^5.4.11
-        version: 5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
+        specifier: ^6.0.2
+        version: 6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2)
       vite-tsconfig-paths:
         specifier: ^5.1.3
-        version: 5.1.3(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))
+        version: 5.1.3(typescript@5.7.2)(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))
       vitest:
         specifier: ^2.1.8
         version: 2.1.8(@types/node@22.10.1)(jsdom@25.0.1)(lightningcss@1.28.2)(msw@2.6.6(@types/node@22.10.1)(typescript@5.7.2))(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
@@ -6291,8 +6291,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  prettier@3.4.1:
-    resolution: {integrity: sha512-G+YdqtITVZmOJje6QkXQWzl3fSfMxFwm1tjTyo9exhkmWSqC4Yhd1+lug++IlR2mvRVAxEDDWYkQdeSztajqgg==}
+  prettier@3.4.2:
+    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -6445,6 +6445,9 @@ packages:
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
 
+  react-is@18.3.1:
+    resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
+
   react-number-format@5.4.2:
     resolution: {integrity: sha512-cg//jVdS49PYDgmcYoBnMMHl4XNTMuV723ZnHD2aXYtWWWqbVF3hjQ8iB+UZEuXapLbeA8P8H+1o6ZB1lcw3vg==}
     peerDependencies:
@@ -6475,8 +6478,8 @@ packages:
       '@types/react':
         optional: true
 
-  react-smooth@4.0.2:
-    resolution: {integrity: sha512-dHYASvQV2mTcyd8+gkDXSOXNdUgNGghnYJcvoQhPRJlmvi8vOrCeS6BVvg1JhYjVFcy3P/CLzKeDS3EyDjROqg==}
+  react-smooth@4.0.3:
+    resolution: {integrity: sha512-PyxIrra8WZWrMRFcCiJsZ+JqFaxEINAt+v/w++wQKQlmO99Eh3+JTLeKApdTsLX2roBdWYXqPsaS8sO4UmdzIg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -6547,8 +6550,8 @@ packages:
   recharts-scale@0.4.5:
     resolution: {integrity: sha512-kivNFO+0OcUNu7jQquLXAxz1FIwZj8nrj+YkOKc5694NbjCvcT6aSZiIzNzd2Kul4o4rTto8QVR9lMNtxD4G1w==}
 
-  recharts@2.12.7:
-    resolution: {integrity: sha512-hlLJMhPQfv4/3NBSAyq3gzGg4h2v69RJh6KU7b3pXYNNAELs9kEoXOjbkxdXpALqKBoVmVptGfLpxdaVYqjmXQ==}
+  recharts@2.14.1:
+    resolution: {integrity: sha512-xtWulflkA+/xu4/QClBdtZYN30dbvTHjxjkh5XTMrH/CQ3WGDDPHHa/LLKCbgoqz0z3UaSH2/blV1i6VNMeh1g==}
     engines: {node: '>=14'}
     peerDependencies:
       react: ^16.0.0 || ^17.0.0 || ^18.0.0
@@ -7465,6 +7468,14 @@ packages:
       typescript:
         optional: true
 
+  valibot@1.0.0-beta.9:
+    resolution: {integrity: sha512-yEX8gMAZ2R1yI2uwOO4NCtVnJQx36zn3vD0omzzj9FhcoblvPukENIiRZXKZwCnqSeV80bMm8wNiGhQ0S8fiww==}
+    peerDependencies:
+      typescript: '>=5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
   valid-data-url@3.0.1:
     resolution: {integrity: sha512-jOWVmzVceKlVVdwjNSenT4PbGghU0SBIizAev8ofZVgivk/TVHXSbNL8LP6M3spZvkR9/QolkyJavGSX5Cs0UA==}
     engines: {node: '>=10'}
@@ -7536,6 +7547,46 @@ packages:
       sugarss:
         optional: true
       terser:
+        optional: true
+
+  vite@6.0.2:
+    resolution: {integrity: sha512-XdQ+VsY2tJpBsKGs0wf3U/+azx8BBpYRHFAyKm5VeEZNOJZRB63q7Sc8Iup3k0TrN3KO6QgyzFf+opSbfY1y0g==}
+    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
+      jiti: '>=1.21.0'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.16.0
+      tsx: ^4.8.1
+      yaml: ^2.4.2
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      jiti:
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+      tsx:
+        optional: true
+      yaml:
         optional: true
 
   vitest@2.1.8:
@@ -8759,11 +8810,11 @@ snapshots:
 
   '@josephg/resolvable@1.0.1': {}
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.4.2(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.4.2(typescript@5.7.2)(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))':
     dependencies:
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.7.2)
-      vite: 5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
+      vite: 6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2)
     optionalDependencies:
       typescript: 5.7.2
 
@@ -8800,13 +8851,13 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@mantine/charts@7.14.3(@mantine/core@7.14.3(@mantine/hooks@7.14.3(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.14.3(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(recharts@2.12.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+  '@mantine/charts@7.14.3(@mantine/core@7.14.3(@mantine/hooks@7.14.3(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@mantine/hooks@7.14.3(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(recharts@2.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
       '@mantine/core': 7.14.3(@mantine/hooks@7.14.3(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mantine/hooks': 7.14.3(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      recharts: 2.12.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      recharts: 2.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
   '@mantine/core@7.14.3(@mantine/hooks@7.14.3(react@18.3.1))(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -9393,134 +9444,134 @@ snapshots:
       selderee: 0.11.0
     optional: true
 
-  '@storybook/addon-actions@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-actions@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
       '@types/uuid': 9.0.8
       dequal: 2.0.3
       polished: 4.3.1
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       uuid: 9.0.1
 
-  '@storybook/addon-backgrounds@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-backgrounds@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
       memoizerific: 1.11.3
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-controls@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-controls@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
       dequal: 2.0.3
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-docs@8.4.6(@types/react@18.3.12)(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-docs@8.4.6(@types/react@18.3.12)(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@mdx-js/react': 3.1.0(@types/react@18.3.12)(react@18.3.1)
-      '@storybook/blocks': 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/csf-plugin': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/react-dom-shim': 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))
+      '@storybook/blocks': 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/csf-plugin': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/react-dom-shim': 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-essentials@8.4.6(@types/react@18.3.12)(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-essentials@8.4.6(@types/react@18.3.12)(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
-      '@storybook/addon-actions': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/addon-backgrounds': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/addon-controls': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/addon-docs': 8.4.6(@types/react@18.3.12)(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/addon-highlight': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/addon-measure': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/addon-outline': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/addon-toolbars': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/addon-viewport': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      storybook: 8.4.6(prettier@3.4.1)
+      '@storybook/addon-actions': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/addon-backgrounds': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/addon-controls': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/addon-docs': 8.4.6(@types/react@18.3.12)(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/addon-highlight': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/addon-measure': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/addon-outline': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/addon-toolbars': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/addon-viewport': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - '@types/react'
 
-  '@storybook/addon-highlight@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-highlight@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
-  '@storybook/addon-interactions@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-interactions@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
-      '@storybook/instrumenter': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/test': 8.4.6(storybook@8.4.6(prettier@3.4.1))
+      '@storybook/instrumenter': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/test': 8.4.6(storybook@8.4.6(prettier@3.4.2))
       polished: 4.3.1
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-links@8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-links@8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/csf': 0.1.12
       '@storybook/global': 5.0.0
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
     optionalDependencies:
       react: 18.3.1
 
-  '@storybook/addon-mdx-gfm@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-mdx-gfm@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       remark-gfm: 4.0.0
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
     transitivePeerDependencies:
       - supports-color
 
-  '@storybook/addon-measure@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-measure@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       tiny-invariant: 1.3.3
 
-  '@storybook/addon-onboarding@8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-onboarding@8.4.6(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       react-confetti: 6.1.0(react@18.3.1)
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
     transitivePeerDependencies:
       - react
 
-  '@storybook/addon-outline@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-outline@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
 
-  '@storybook/addon-toolbars@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-toolbars@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
-  '@storybook/addon-viewport@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/addon-viewport@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       memoizerific: 1.11.3
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
-  '@storybook/blocks@8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/blocks@8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/csf': 0.1.12
       '@storybook/icons': 1.2.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
     optionalDependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/builder-vite@8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))':
+  '@storybook/builder-vite@8.4.6(storybook@8.4.6(prettier@3.4.2))(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))':
     dependencies:
-      '@storybook/csf-plugin': 8.4.6(storybook@8.4.6(prettier@3.4.1))
+      '@storybook/csf-plugin': 8.4.6(storybook@8.4.6(prettier@3.4.2))
       browser-assert: 1.2.1
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       ts-dedent: 2.2.0
-      vite: 5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
+      vite: 6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2)
 
   '@storybook/channels@7.6.17':
     dependencies:
@@ -9540,19 +9591,19 @@ snapshots:
     dependencies:
       '@storybook/global': 5.0.0
 
-  '@storybook/components@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/components@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
   '@storybook/core-events@7.6.17':
     dependencies:
       ts-dedent: 2.2.0
 
-  '@storybook/core-events@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/core-events@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
-  '@storybook/core@8.4.6(prettier@3.4.1)':
+  '@storybook/core@8.4.6(prettier@3.4.2)':
     dependencies:
       '@storybook/csf': 0.1.12
       better-opn: 3.0.2
@@ -9566,15 +9617,15 @@ snapshots:
       util: 0.12.5
       ws: 8.18.0
     optionalDependencies:
-      prettier: 3.4.1
+      prettier: 3.4.2
     transitivePeerDependencies:
       - bufferutil
       - supports-color
       - utf-8-validate
 
-  '@storybook/csf-plugin@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/csf-plugin@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       unplugin: 1.16.0
 
   '@storybook/csf@0.1.12':
@@ -9588,15 +9639,15 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/instrumenter@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/instrumenter@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/global': 5.0.0
       '@vitest/utils': 2.1.8
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
-  '@storybook/manager-api@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/manager-api@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
   '@storybook/preview-api@7.6.17':
     dependencies:
@@ -9615,67 +9666,67 @@ snapshots:
       ts-dedent: 2.2.0
       util-deprecate: 1.0.2
 
-  '@storybook/preview-api@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/preview-api@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
-  '@storybook/react-dom-shim@8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/react-dom-shim@8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
-  '@storybook/react-vite@8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.28.0)(storybook@8.4.6(prettier@3.4.1))(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))':
+  '@storybook/react-vite@8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.28.0)(storybook@8.4.6(prettier@3.4.2))(typescript@5.7.2)(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.4.2(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.4.2(typescript@5.7.2)(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))
       '@rollup/pluginutils': 5.1.3(rollup@4.28.0)
-      '@storybook/builder-vite': 8.4.6(storybook@8.4.6(prettier@3.4.1))(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))
-      '@storybook/react': 8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))(typescript@5.7.2)
+      '@storybook/builder-vite': 8.4.6(storybook@8.4.6(prettier@3.4.2))(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))
+      '@storybook/react': 8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))(typescript@5.7.2)
       find-up: 5.0.0
       magic-string: 0.30.14
       react: 18.3.1
       react-docgen: 7.1.0
       react-dom: 18.3.1(react@18.3.1)
       resolve: 1.22.8
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
       tsconfig-paths: 4.2.0
-      vite: 5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
+      vite: 6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - '@storybook/test'
       - rollup
       - supports-color
       - typescript
 
-  '@storybook/react@8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.1)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))(typescript@5.7.2)':
+  '@storybook/react@8.4.6(@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))(typescript@5.7.2)':
     dependencies:
-      '@storybook/components': 8.4.6(storybook@8.4.6(prettier@3.4.1))
+      '@storybook/components': 8.4.6(storybook@8.4.6(prettier@3.4.2))
       '@storybook/global': 5.0.0
-      '@storybook/manager-api': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/preview-api': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/react-dom-shim': 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/theming': 8.4.6(storybook@8.4.6(prettier@3.4.1))
+      '@storybook/manager-api': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/preview-api': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/react-dom-shim': 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/theming': 8.4.6(storybook@8.4.6(prettier@3.4.2))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
     optionalDependencies:
-      '@storybook/test': 8.4.6(storybook@8.4.6(prettier@3.4.1))
+      '@storybook/test': 8.4.6(storybook@8.4.6(prettier@3.4.2))
       typescript: 5.7.2
 
-  '@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/test@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
       '@storybook/csf': 0.1.12
       '@storybook/global': 5.0.0
-      '@storybook/instrumenter': 8.4.6(storybook@8.4.6(prettier@3.4.1))
+      '@storybook/instrumenter': 8.4.6(storybook@8.4.6(prettier@3.4.2))
       '@testing-library/dom': 10.4.0
       '@testing-library/jest-dom': 6.5.0
       '@testing-library/user-event': 14.5.2(@testing-library/dom@10.4.0)
       '@vitest/expect': 2.0.5
       '@vitest/spy': 2.0.5
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
-  '@storybook/theming@8.4.6(storybook@8.4.6(prettier@3.4.1))':
+  '@storybook/theming@8.4.6(storybook@8.4.6(prettier@3.4.2))':
     dependencies:
-      storybook: 8.4.6(prettier@3.4.1)
+      storybook: 8.4.6(prettier@3.4.2)
 
   '@storybook/types@7.6.17':
     dependencies:
@@ -9784,11 +9835,11 @@ snapshots:
   '@tanstack/router-generator@1.85.3':
     dependencies:
       '@tanstack/virtual-file-routes': 1.81.9
-      prettier: 3.4.1
+      prettier: 3.4.2
       tsx: 4.19.2
       zod: 3.23.8
 
-  '@tanstack/router-plugin@1.85.3(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))(webpack@5.94.0(esbuild@0.24.0))':
+  '@tanstack/router-plugin@1.85.3(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))(webpack@5.94.0(esbuild@0.24.0))':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/generator': 7.26.2
@@ -9809,7 +9860,7 @@ snapshots:
       unplugin: 1.16.0
       zod: 3.23.8
     optionalDependencies:
-      vite: 5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
+      vite: 6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2)
       webpack: 5.94.0(esbuild@0.24.0)
     transitivePeerDependencies:
       - supports-color
@@ -9875,7 +9926,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.4.1)':
+  '@trivago/prettier-plugin-sort-imports@4.3.0(prettier@3.4.2)':
     dependencies:
       '@babel/generator': 7.17.7
       '@babel/parser': 7.26.2
@@ -9883,7 +9934,7 @@ snapshots:
       '@babel/types': 7.17.0
       javascript-natural-sort: 0.7.1
       lodash: 4.17.21
-      prettier: 3.4.1
+      prettier: 3.4.2
     transitivePeerDependencies:
       - supports-color
 
@@ -10456,21 +10507,21 @@ snapshots:
       '@typescript-eslint/types': 8.8.0
       eslint-visitor-keys: 3.4.3
 
-  '@vitejs/plugin-react-swc@3.7.2(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))':
+  '@vitejs/plugin-react-swc@3.7.2(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))':
     dependencies:
       '@swc/core': 1.10.0
-      vite: 5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
+      vite: 6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  '@vitejs/plugin-react@4.3.4(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0))':
+  '@vitejs/plugin-react@4.3.4(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2))':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.0)
       '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.0)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
-      vite: 5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
+      vite: 6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - supports-color
 
@@ -12866,7 +12917,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.7.8
+      '@types/node': 22.10.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -13221,10 +13272,10 @@ snapshots:
 
   make-error@1.3.6: {}
 
-  mantine-form-valibot-resolver@3.0.1(@mantine/form@7.14.3(react@18.3.1))(valibot@1.0.0-beta.0(typescript@5.7.2)):
+  mantine-form-valibot-resolver@3.0.1(@mantine/form@7.14.3(react@18.3.1))(valibot@1.0.0-beta.9(typescript@5.7.2)):
     dependencies:
       '@mantine/form': 7.14.3(react@18.3.1)
-      valibot: 1.0.0-beta.0(typescript@5.7.2)
+      valibot: 1.0.0-beta.9(typescript@5.7.2)
 
   map-or-similar@1.5.0: {}
 
@@ -14504,7 +14555,7 @@ snapshots:
 
   prettier@3.3.3: {}
 
-  prettier@3.4.1: {}
+  prettier@3.4.2: {}
 
   pretty-format@27.5.1:
     dependencies:
@@ -14720,6 +14771,8 @@ snapshots:
 
   react-is@17.0.2: {}
 
+  react-is@18.3.1: {}
+
   react-number-format@5.4.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -14746,7 +14799,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.12
 
-  react-smooth@4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-smooth@4.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       fast-equals: 5.0.1
       prop-types: 15.8.1
@@ -14838,15 +14891,15 @@ snapshots:
     dependencies:
       decimal.js-light: 2.5.1
 
-  recharts@2.12.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  recharts@2.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       clsx: 2.1.1
       eventemitter3: 4.0.7
       lodash: 4.17.21
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      react-is: 16.13.1
-      react-smooth: 4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-is: 18.3.1
+      react-smooth: 4.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       recharts-scale: 0.4.5
       tiny-invariant: 1.3.3
       victory-vendor: 36.9.2
@@ -15215,14 +15268,14 @@ snapshots:
 
   std-env@3.8.0: {}
 
-  storybook-dark-mode@4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.1)):
+  storybook-dark-mode@4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(prettier@3.4.2)):
     dependencies:
-      '@storybook/components': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/core-events': 8.4.6(storybook@8.4.6(prettier@3.4.1))
+      '@storybook/components': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/core-events': 8.4.6(storybook@8.4.6(prettier@3.4.2))
       '@storybook/global': 5.0.0
       '@storybook/icons': 1.2.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@storybook/manager-api': 8.4.6(storybook@8.4.6(prettier@3.4.1))
-      '@storybook/theming': 8.4.6(storybook@8.4.6(prettier@3.4.1))
+      '@storybook/manager-api': 8.4.6(storybook@8.4.6(prettier@3.4.2))
+      '@storybook/theming': 8.4.6(storybook@8.4.6(prettier@3.4.2))
       fast-deep-equal: 3.1.3
       memoizerific: 1.11.3
     transitivePeerDependencies:
@@ -15230,11 +15283,11 @@ snapshots:
       - react-dom
       - storybook
 
-  storybook@8.4.6(prettier@3.4.1):
+  storybook@8.4.6(prettier@3.4.2):
     dependencies:
-      '@storybook/core': 8.4.6(prettier@3.4.1)
+      '@storybook/core': 8.4.6(prettier@3.4.2)
     optionalDependencies:
-      prettier: 3.4.1
+      prettier: 3.4.2
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -15433,7 +15486,7 @@ snapshots:
   terser@5.36.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
-      acorn: 8.13.0
+      acorn: 8.14.0
       commander: 2.20.3
       source-map-support: 0.5.21
 
@@ -15869,6 +15922,10 @@ snapshots:
     optionalDependencies:
       typescript: 5.7.2
 
+  valibot@1.0.0-beta.9(typescript@5.7.2):
+    optionalDependencies:
+      typescript: 5.7.2
+
   valid-data-url@3.0.1:
     optional: true
 
@@ -15925,13 +15982,13 @@ snapshots:
       - supports-color
       - terser
 
-  vite-tsconfig-paths@5.1.3(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)):
+  vite-tsconfig-paths@5.1.3(typescript@5.7.2)(vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2)):
     dependencies:
       debug: 4.3.7
       globrex: 0.1.2
       tsconfck: 3.1.4(typescript@5.7.2)
     optionalDependencies:
-      vite: 5.4.11(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)
+      vite: 6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -15948,6 +16005,20 @@ snapshots:
       sass: 1.82.0
       sugarss: 4.0.1(postcss@8.4.49)
       terser: 5.36.0
+
+  vite@6.0.2(@types/node@22.10.1)(lightningcss@1.28.2)(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0)(tsx@4.19.2):
+    dependencies:
+      esbuild: 0.24.0
+      postcss: 8.4.49
+      rollup: 4.28.0
+    optionalDependencies:
+      '@types/node': 22.10.1
+      fsevents: 2.3.3
+      lightningcss: 1.28.2
+      sass: 1.82.0
+      sugarss: 4.0.1(postcss@8.4.49)
+      terser: 5.36.0
+      tsx: 4.19.2
 
   vitest@2.1.8(@types/node@22.10.1)(jsdom@25.0.1)(lightningcss@1.28.2)(msw@2.6.6(@types/node@22.10.1)(typescript@5.7.2))(sass@1.82.0)(sugarss@4.0.1(postcss@8.4.49))(terser@5.36.0):
     dependencies:
